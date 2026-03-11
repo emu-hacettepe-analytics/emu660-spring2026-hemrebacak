@@ -1,9 +1,15 @@
+::: matrix-bg
 ---
-title: "Welcome to My Analytics Lab"
+title: "Welcome, Neo. This is Huseyin Emre Bacak's Analytics Lab for EMU660."
 ---
 
-Hello!! My name is xxx xxxx.
+Hi, My name is Hüseyin Emre Bacak.
 
-This is my personal webpage.
+This is my Matrix-themed personal webpage designed for EMU660.
 
-Please stay tuned to follow my works on data analytics, blog posts, and more.
+Please stay tuned to follow my works on data analytics, EMU660, blog posts, and more.
+
+P.S: I created this Matrix-themed personal webpage thanks to generative AI — special thanks to Google Gemini :-)
+
+You can see prompts I used for applying this theme to a personal webpage using Quatro Markdown and GitHub Pages tools [here](https://gemini.google.com/share/65e47a96adc9) and [here.](https://gemini.google.com/share/5d2905d016ac)
+:::

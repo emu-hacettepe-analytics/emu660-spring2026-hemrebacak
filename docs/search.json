@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Welcome to My Analytics Lab",
+    "title": "Welcome, Neo. This is Huseyin Emre Bacak’s Analytics Lab for EMU660.",
     "section": "",
-    "text": "Hello!! My name is xxx xxxx.\nThis is my personal webpage.\nPlease stay tuned to follow my works on data analytics, blog posts, and more.\n\n\n\n Back to top"
+    "text": "Hi, My name is Hüseyin Emre Bacak.\nThis is my Matrix-themed personal webpage designed for EMU660.\nPlease stay tuned to follow my works on data analytics, EMU660, blog posts, and more.\nP.S: I created this Matrix-themed personal webpage thanks to generative AI — special thanks to Google Gemini :-)\nYou can see prompts I used for applying this theme to a personal webpage using Quatro Markdown and GitHub Pages tools here and here.\n\n\n\n\n Back to top"
   },
   {
     "objectID": "project.html",
@@ -74,7 +74,7 @@
     "href": "assignments.html",
     "title": "My Assignments",
     "section": "",
-    "text": "On this page, I showcase the assignment I conducted for the [term and year, e.g. Spring 2024-2025] EMU660 Decision Making with Analytics course.\nPlease use left menu to navigate through my assignments.\n\n\n\n Back to top",
+    "text": "On this page, I showcase the assignment I conducted for the Spring 2025-2026 EMU660 Decision Making with Analytics course.\nPlease use left menu to navigate through my assignments.\n\n\n\n\n Back to top",
     "crumbs": [
       "My Assignments"
     ]
@@ -96,9 +96,9 @@
   {
     "objectID": "posts.html",
     "href": "posts.html",
-    "title": "My Blog",
+    "title": "My Personal Blog",
     "section": "",
-    "text": "This page is under construction.\n\n\n\n Back to top"
+    "text": "Not yet…\n\n\n\n\n Back to top"
   },
   {
     "objectID": "docs/assignments/assignment-1.html",
@@ -126,5 +126,47 @@
     "crumbs": [
       "Assignment 2"
     ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "You can download my CV by clicking here.\n\n\n📍 Ankara, Turkiye\n📱 +90 532 746 08 40 | ✉️ hemrebacak18@gmail.com | 🔗 linkedin.com/in/hemre-bacak\n\n\n\n\n\n\n\nAs a dynamic and insightful person with hands-on experience in data-driven decision-making, I excel in bridging the gap between technical solutions and business strategies. I bring a unique blend of academic rigor from Bogazici University and practical business intelligence, optimally balanced to contribute effectively in a fast-paced and challenging environment.\n\n\n\n\n\n\nAug. 2024 - Present | Ankara, Turkiye\n\nServing as an interface between user departments and internal/external IT teams to provide technical infrastructure for supply chain digitalization projects.\nCoordinating functional and technical requirements for software developments (production planning, QM, logistics, procurement) and assuming Product Owner responsibilities when required.\nManaging test scenarios and execution processes, including functional, integration, and User Acceptance Testing (UAT).\nTransforming supply chain data into interactive dashboards and reporting metrics using BI tools for senior management executive summaries.\n\n\n\n\nSept. 2023 – Jun. 2024 | Istanbul, Turkiye\n\nDesigned and implemented internal applications for CRM, performance monitoring, and database management.\nCollaborated with the team to ensure application functionality through rigorous testing and maintenance.\nFostered innovation by designing new features to enhance the competitive edge in the market.\n\n\n\n\nJul. 2023 – Sept. 2023 | Istanbul, Turkiye\n\nWorked on the implementation of an “AI-powered Digital On-Boarding process” for mobile banking apps.\nCreated Project Canvas, User Stories, and Activity Diagrams; provided UI/UX design input.\nCreated datasets to train/test AI models and optimized team workflows using Agile & Scrum methodologies.\n\n\n\n\n\n\n\n\nB.S. in Industrial Engineering | Aug. 2021 – Jun. 2024 | Istanbul, Turkiye GPA: 3.46/4.00\n\nPrevious Major: Computer Engineering (Aug. 2018 - Aug. 2021). Completed Prep School with Grade A. Switched majors in 2021.\n\n\n\n\nSept. 2014 – Jun. 2018 | Cankiri, Turkiye GPA: 97.63/100\n\nValedictorian (Most successful student).\nRanked 128th in National University Placement Exams (YKS-2018) among 2M+ students.\n\n\n\n\n\n\n\nProgramming & Data: Python (Optimization, ML, Statistics), R (Data Management & Statistics), MS Excel (VBA, Macros, Python Integration), SQL (MySQL, T-SQL).\nBI & Tools: Tableau, Apache Superset, Power BI, Figma.\nLanguages: Turkish (Native), English (Fluent, BUEPT Grade A).\n\n\n\n\n\n\n\n\nCollaborated to optimize the threshold value for contingent free shipping in e-commerce using effect formulation and simulation.\nDeveloped a model using extensive data analysis and ML algorithms that increased revenue by 5.36%.\nProvided actionable insights for revenue maximization in competitive online markets."
+  },
+  {
+    "objectID": "about.html#summary",
+    "href": "about.html#summary",
+    "title": "About Me",
+    "section": "",
+    "text": "As a dynamic and insightful person with hands-on experience in data-driven decision-making, I excel in bridging the gap between technical solutions and business strategies. I bring a unique blend of academic rigor from Bogazici University and practical business intelligence, optimally balanced to contribute effectively in a fast-paced and challenging environment."
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "About Me",
+    "section": "",
+    "text": "Aug. 2024 - Present | Ankara, Turkiye\n\nServing as an interface between user departments and internal/external IT teams to provide technical infrastructure for supply chain digitalization projects.\nCoordinating functional and technical requirements for software developments (production planning, QM, logistics, procurement) and assuming Product Owner responsibilities when required.\nManaging test scenarios and execution processes, including functional, integration, and User Acceptance Testing (UAT).\nTransforming supply chain data into interactive dashboards and reporting metrics using BI tools for senior management executive summaries.\n\n\n\n\nSept. 2023 – Jun. 2024 | Istanbul, Turkiye\n\nDesigned and implemented internal applications for CRM, performance monitoring, and database management.\nCollaborated with the team to ensure application functionality through rigorous testing and maintenance.\nFostered innovation by designing new features to enhance the competitive edge in the market.\n\n\n\n\nJul. 2023 – Sept. 2023 | Istanbul, Turkiye\n\nWorked on the implementation of an “AI-powered Digital On-Boarding process” for mobile banking apps.\nCreated Project Canvas, User Stories, and Activity Diagrams; provided UI/UX design input.\nCreated datasets to train/test AI models and optimized team workflows using Agile & Scrum methodologies."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About Me",
+    "section": "",
+    "text": "B.S. in Industrial Engineering | Aug. 2021 – Jun. 2024 | Istanbul, Turkiye GPA: 3.46/4.00\n\nPrevious Major: Computer Engineering (Aug. 2018 - Aug. 2021). Completed Prep School with Grade A. Switched majors in 2021.\n\n\n\n\nSept. 2014 – Jun. 2018 | Cankiri, Turkiye GPA: 97.63/100\n\nValedictorian (Most successful student).\nRanked 128th in National University Placement Exams (YKS-2018) among 2M+ students."
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "About Me",
+    "section": "",
+    "text": "Programming & Data: Python (Optimization, ML, Statistics), R (Data Management & Statistics), MS Excel (VBA, Macros, Python Integration), SQL (MySQL, T-SQL).\nBI & Tools: Tableau, Apache Superset, Power BI, Figma.\nLanguages: Turkish (Native), English (Fluent, BUEPT Grade A)."
+  },
+  {
+    "objectID": "about.html#projects",
+    "href": "about.html#projects",
+    "title": "About Me",
+    "section": "",
+    "text": "Collaborated to optimize the threshold value for contingent free shipping in e-commerce using effect formulation and simulation.\nDeveloped a model using extensive data analysis and ML algorithms that increased revenue by 5.36%.\nProvided actionable insights for revenue maximization in competitive online markets."
   }
 ]

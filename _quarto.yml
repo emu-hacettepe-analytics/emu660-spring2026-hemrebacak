@@ -3,12 +3,10 @@ project:
   output-dir: docs
 
 website:
-  title: "[Student xxxx]'s Analytics Lab"
+  title: "Hüseyin Emre Bacak's Analytics Lab"
   navbar:
-    search: true
+    search: false
     left:
-      - text: Home
-        href: index.qmd
       - text: About Me
         href: about.qmd
       - text: My Posts
@@ -22,11 +20,9 @@ website:
             
     tools:
       - icon: github
-        href: https://twitter.com
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/hemrebacak
       - icon: linkedin
-        href: https://linkedin.com
+        href: https://www.linkedin.com/in/hemre-bacak/
 
   sidebar:
     - title: "Assignments"
@@ -46,8 +42,8 @@ format:
     toc: true
     toc-location: left
     theme: 
-      light: simplex 
-      dark: cyborg
+      - vapor
+      - matrix.scss
     css: styles.css
 
 

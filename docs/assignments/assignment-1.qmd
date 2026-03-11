@@ -1,15 +1,33 @@
+::: matrix-bg
 ---
 title: "Assignment 1"
 ---
 
-# Assignment 1
+# Task a.
 
-```{r}
-1 + 1
-```
+I chose a video featuring Professor Mustafa Baydoğan to write this brief summary. I took his classes during my undergraduate studies at Boğaziçi University, and I really like both his personality and his teaching style.
 
-My first assignment has two parts.
+In this video, the professor mainly talks about data-driven decision-making processes. He uses examples that are similar to case studies to show how these processes are applied in different sectors based on his own professional experiences. In addition to these examples, he explains the different stages of data analysis. He also compares the traditional methods used in decision-making with deep learning methods. He covers their similarities and differences, as well as the advantages and disadvantages of each. He even talks about how reinforcement learning works in a general sense, noting that it was a popular alternative at the time the video was recorded.
 
-## (a)
+Finally, he mentions the new horizons reached because humans have expanded and advanced their work in data-driven decision-making. He gives two specific examples of these new areas: physics-informed machine learning and machine learning for optimization.
 
-## (b)
+# Task b.
+
+## Çoktan Seçmeli Soru
+
+Mustafa Hoca, elektrik piyasasında bölgesel tüketim tahmini yaparken, veri 24 saatlik döngüler (geceleri düşük, öğlen ve akşam yüksek tüketim) içerse de sezonsal ARIMA (seasonal ARIMA) gibi sadece geçmiş tüketim verilerine dayanan geleneksel zaman serisi modellerinin tek başına iyi çalışmadığını belirtmiştir. Videodaki anlatıma göre, bu modellerin **iyi çalışmamasının temel sebebi** aşağıdakilerden hangisidir?
+
+A. Geleneksel makine öğrenmesi yöntemlerinin yapısal olmayan (unstructured) veri setlerinde uygulanamaması
+
+B. Tüketicilerin dengesizlik cezası ödememek için tüketim verilerini EPİAŞ sistemlerine eksik bildirmesi
+
+**C. Resmi tatil, bayram, seçim, ÖSYM sınav günleri gibi özel günlerin insan davranışlarını etkileyerek tüketimi standart sezonsallığın dışında önemli ölçüde değiştirmesi**
+
+D. Elektrik üretiminin sadece hava durumu ve fiziksel yasalardan etkileniyor olması
+
+## Açık Uçlu Soru
+
+Mustafa Hoca'nın Amerika'daki bir orman endüstrisi şirketi için çözdüğü "yaş kerestelerin kurutma operasyonu sonrasında yamulması (yay veya hokey sopası şeklinde)" probleminde proje kapsamında kurulan makine öğrenmesi modelinin derin öğrenme (deep learning) gibi öznitelik çıkarımı ve öğrenme sürecini beraber yürüten bir yöntem yerine **"açıklanabilir" (explainable / yorumlanabilir)** olmasının şirket tarafındaki önemi ne olmuştur?
+
+**Cevap:** İş hayatında şirket patronlarına veya müşterilere bir karar destek mekanizmasını sunarken genelde o mekanizmanın "neden" bu şekilde kurgulandığını anlatmak zorunludur. Mekanizmanın açıklanabilir olması sayesinde şirket örn. "üst taraf ile alt taraf arasındaki genç/yaşlı odun yoğunluğu farkından dolayı bu kerestenin yamulacağı" bilgisini edinebilmiş ve fırınlama öncesi kerestenin uçlarından sabitleme gibi önleyici fiziksel aksiyonlar alarak düz kereste elde edebilmiştir. Çok fazla parametresi olan ve içsel özellik çıkaran derin öğrenme modelleri videonun kaydedildiği dönemde veya yapısı gereği bu seviyede basit ve nedensel yorumlanabilirliğe kapalı olduğu için tercih edilmemiştir.
+:::

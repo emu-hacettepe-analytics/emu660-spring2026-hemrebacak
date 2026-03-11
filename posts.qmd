@@ -1,6 +1,7 @@
+::: matrix-bg
 ---
-title: "My Blog"
-sidebar: false 
+title: "My Personal Blog"
 ---
 
-This page is under construction.
+Not yet...
+:::

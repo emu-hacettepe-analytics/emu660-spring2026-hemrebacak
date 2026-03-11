@@ -1,40 +1,82 @@
+::: matrix-bg
 ---
 title: "About Me"
-sidebar: false 
 ---
 
-![](assets/images/vesikalik.jpeg){fig-align="center"}
+You can download my CV by clicking [here.](CurriculumVitae11032026.pdf)
 
-# Education
+# Huseyin Emre Bacak
 
--   B.S., ................................., ....................................University, Turkey, 20xx - 20xx.
--   M.S., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing.
--   Ph.D.., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing.
+📍 Ankara, Turkiye\
+📱 +90 532 746 08 40 \| ✉️ [hemrebacak18\@gmail.com](mailto:hemrebacak18@gmail.com) \| 🔗 [linkedin.com/in/hemre-bacak](https://www.linkedin.com/in/hemre-bacak/)
 
-# Work Experience
+![](vesikalik.jpg){fig-align="center" width="150" style="border-radius: 50%;"}
 
-## Employements
+## Summary
 
-1.  Firm xxx, position xx, year xxx
+As a dynamic and insightful person with hands-on experience in data-driven decision-making, I excel in bridging the gap between technical solutions and business strategies. I bring a unique blend of academic rigor from Bogazici University and practical business intelligence, optimally balanced to contribute effectively in a fast-paced and challenging environment.
 
-2.  Firm yyy, position yyy, year yyy
+------------------------------------------------------------------------
 
-## Internships
+## Experience
 
-1.  Firm aaa, position xx, year xxx
+### ROKETSAN A.S. — Digital Supply Chain System Development Engineer
 
-2.  Firm bbb, position yyy, year yyy
+*Aug. 2024 - Present \| Ankara, Turkiye*
 
-# Projects
+-   Serving as an interface between user departments and internal/external IT teams to provide technical infrastructure for supply chain digitalization projects.
+-   Coordinating functional and technical requirements for software developments (production planning, QM, logistics, procurement) and assuming Product Owner responsibilities when required.
+-   Managing test scenarios and execution processes, including functional, integration, and User Acceptance Testing (UAT).
+-   Transforming supply chain data into interactive dashboards and reporting metrics using BI tools for senior management executive summaries.
 
-1.  TUBİTAK 1001..........................
+### B/S/H/ Home Appliances Group — Business Analyst Intern
 
-# Publications
+*Sept. 2023 – Jun. 2024 \| Istanbul, Turkiye*
 
-1.  Dasdemir, E., Batta, R., Koksalan, M., Tezcaner Ozturk, D. (2022) “UAV Routing for Reconnaissance Mission: A Multi-Objective Orienteering Problem with Time-Dependent Prizes and Multiple Connections”, Computers & Operations Research, 145: 105882.
+-   Designed and implemented internal applications for CRM, performance monitoring, and database management.
+-   Collaborated with the team to ensure application functionality through rigorous testing and maintenance.
+-   Fostered innovation by designing new features to enhance the competitive edge in the market.
 
-# Competencies
+### Intertech IT and Marketing Inc. — Business Analyst Intern
 
-R, Quarto, Git, Python
+*Jul. 2023 – Sept. 2023 \| Istanbul, Turkiye*
 
-# Hobbies
+-   Worked on the implementation of an "AI-powered Digital On-Boarding process" for mobile banking apps.
+-   Created Project Canvas, User Stories, and Activity Diagrams; provided UI/UX design input.
+-   Created datasets to train/test AI models and optimized team workflows using Agile & Scrum methodologies.
+
+------------------------------------------------------------------------
+
+## Education
+
+### Bogazici University
+
+**B.S. in Industrial Engineering** \| *Aug. 2021 – Jun. 2024 \| Istanbul, Turkiye* *GPA: 3.46/4.00*
+
+-   *Previous Major:* Computer Engineering (Aug. 2018 - Aug. 2021). Completed Prep School with Grade A. Switched majors in 2021.
+
+### Cankiri TOBB Science High School
+
+*Sept. 2014 – Jun. 2018 \| Cankiri, Turkiye* *GPA: 97.63/100*
+
+-   Valedictorian (Most successful student).
+-   Ranked 128th in National University Placement Exams (YKS-2018) among 2M+ students.
+
+------------------------------------------------------------------------
+
+## Skills
+
+-   **Programming & Data:** Python (Optimization, ML, Statistics), R (Data Management & Statistics), MS Excel (VBA, Macros, Python Integration), SQL (MySQL, T-SQL).
+-   **BI & Tools:** Tableau, Apache Superset, Power BI, Figma.
+-   **Languages:** Turkish (Native), English (Fluent, BUEPT Grade A).
+
+------------------------------------------------------------------------
+
+## Projects
+
+### Measuring Effects of Free Shipping on Sales and Price (Graduation Project)
+
+-   Collaborated to optimize the threshold value for contingent free shipping in e-commerce using effect formulation and simulation.
+-   Developed a model using extensive data analysis and ML algorithms that increased revenue by 5.36%.
+-   Provided actionable insights for revenue maximization in competitive online markets.
+:::
