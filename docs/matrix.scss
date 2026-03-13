@@ -23,9 +23,9 @@ body {
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
+  background-attachment: fixed !important;
   min-height: 100vh;
 }
-
 // Overriding vapor theme
 .navbar, .footer, .quarto-sidebar, header {
   background-color: rgba(13, 2, 8, 0.9) !important;

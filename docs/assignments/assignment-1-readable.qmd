@@ -1,0 +1,109 @@
+---
+title: "Assignment 1 (Readable Version)"
+---
+
+**Task a.**
+
+I chose a video featuring Professor Mustafa Baydoğan to write this brief summary. I took his classes during my undergraduate studies at Boğaziçi University, and I really like both his personality and his teaching style.
+
+In this video, the professor mainly talks about data-driven decision-making processes. He uses examples that are similar to case studies to show how these processes are applied in different sectors based on his own professional experiences. In addition to these examples, he explains the different stages of data analysis. He also compares the traditional methods used in decision-making with deep learning methods. He covers their similarities and differences, as well as the advantages and disadvantages of each. He even talks about how reinforcement learning works in a general sense, noting that it was a popular alternative at the time the video was recorded.
+
+Finally, he mentions the new horizons reached because humans have expanded and advanced their work in data-driven decision-making. He gives two specific examples of these new areas: physics-informed machine learning and machine learning for optimization.
+
+**Task b.**
+
+**Çoktan Seçmeli Soru**
+
+Mustafa Hoca, elektrik piyasasında bölgesel tüketim tahmini yaparken, veri 24 saatlik döngüler (geceleri düşük, öğlen ve akşam yüksek tüketim) içerse de sezonsal ARIMA (seasonal ARIMA) gibi sadece geçmiş tüketim verilerine dayanan geleneksel zaman serisi modellerinin tek başına iyi çalışmadığını belirtmiştir. Videodaki anlatıma göre, bu modellerin iyi çalışmamasının temel sebebi aşağıdakilerden hangisidir?
+
+A. Geleneksel makine öğrenmesi yöntemlerinin yapısal olmayan (unstructured) veri setlerinde uygulanamaması
+
+B. Tüketicilerin dengesizlik cezası ödememek için tüketim verilerini EPİAŞ sistemlerine eksik bildirmesi
+
+**C. Resmi tatil, bayram, seçim, ÖSYM sınav günleri gibi özel günlerin insan davranışlarını etkileyerek tüketimi standart sezonsallığın dışında önemli ölçüde değiştirmesi**
+
+D. Elektrik üretiminin sadece hava durumu ve fiziksel yasalardan etkileniyor olması
+
+**Açık Uçlu Soru**
+
+Mustafa Hoca'nın Amerika'daki bir orman endüstrisi şirketi için çözdüğü "yaş kerestelerin kurutma operasyonu sonrasında yamulması (yay veya hokey sopası şeklinde)" probleminde proje kapsamında kurulan makine öğrenmesi modelinin derin öğrenme (deep learning) gibi öznitelik çıkarımı ve öğrenme sürecini beraber yürüten bir yöntem yerine "açıklanabilir" (explainable / yorumlanabilir) olmasının şirket tarafındaki önemi ne olmuştur?
+
+**Cevap:** İş hayatında şirket patronlarına veya müşterilere bir karar destek mekanizmasını sunarken genelde o mekanizmanın "neden" bu şekilde kurgulandığını anlatmak zorunludur. Mekanizmanın açıklanabilir olması sayesinde şirket örn. "üst taraf ile alt taraf arasındaki genç/yaşlı odun yoğunluğu farkından dolayı bu kerestenin yamulacağı" bilgisini edinebilmiş ve fırınlama öncesi kerestenin uçlarından sabitleme gibi önleyici fiziksel aksiyonlar alarak düz kereste elde edebilmiştir. Çok fazla parametresi olan ve içsel özellik çıkaran derin öğrenme modelleri videonun kaydedildiği dönemde veya yapısı gereği bu seviyede basit ve nedensel yorumlanabilirliğe kapalı olduğu için tercih edilmemiştir.
+
+**Task c.**
+
+Uploading "mtcars" data to a variable called "data_of_task_c"
+
+```{r}
+data_of_task_c <- mtcars
+```
+
+Looking to the structure of the data
+
+```{r}
+str(data_of_task_c)
+```
+
+Observing head of the data
+
+```{r}
+head(data_of_task_c)
+```
+
+Custom Summary Function called "compute_stats"
+
+```{r}
+compute_stats <- function(numeric_vector) {
+  mean_numeric_vector <- mean(numeric_vector)
+  median_numeric_vector <- median(numeric_vector)
+  variance_numeric_vector <- var(numeric_vector)
+  iqr_numeric_vector <- IQR(numeric_vector)
+  min_numeric_vector <- min(numeric_vector)
+  max_numeric_vector <- max(numeric_vector)
+  
+  stats_list <- list(
+    Mean = mean_numeric_vector, 
+    Median = median_numeric_vector, 
+    Variance = variance_numeric_vector, 
+    IQR = iqr_numeric_vector, 
+    Minimum = min_numeric_vector, 
+    Maximum = max_numeric_vector
+  )
+  return(stats_list)
+}
+```
+
+Applying the Function Using a Loop
+
+```{r}
+df <- data.frame()
+
+
+#for loop iterates through 11 columns in the data
+for (x in names(data_of_task_c)) {
+  if (class(data_of_task_c[[x]]) == "numeric") { #if a column contains numeric values, compute_stats function is executed for that column
+    stat_df <- data.frame(compute_stats(data_of_task_c[[x]]))
+    rownames(stat_df) <- x
+    df <- rbind(df, stat_df)
+  }
+  else {
+    next
+  }
+}
+
+df
+```
+
+sapply Approach
+
+```{r}
+data_only_numeric_columns <- data_of_task_c[, sapply(data_of_task_c, is.numeric)] # by this line of code, we get columns with only numeric values in our data
+
+sapply(data_only_numeric_columns, compute_stats)
+```
+
+apply Approach
+
+```{r}
+apply(data_of_task_c, MARGIN = 2, FUN = compute_stats) #using apply function for applying compute_stats across all columns of the data
+```
