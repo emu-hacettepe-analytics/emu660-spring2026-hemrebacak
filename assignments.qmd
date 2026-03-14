@@ -1,4 +1,3 @@
-::: matrix-bg
 ---
 title: "My Assignments"
 ---
@@ -6,4 +5,3 @@ title: "My Assignments"
 On this page, I showcase the assignment I conducted for the Spring 2025-2026 EMU660 Decision Making with Analytics course.
 
 Please use left menu to navigate through my assignments.
-:::

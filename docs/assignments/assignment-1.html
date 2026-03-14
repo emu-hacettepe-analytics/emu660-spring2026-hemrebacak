@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Assignment 1</title>
+<title>Assignment 1 – Hüseyin Emre Bacak’s Analytics Lab</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,29 +20,223 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="assignment-1_files/libs/clipboard/clipboard.min.js"></script>
-<script src="assignment-1_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="assignment-1_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="assignment-1_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="assignment-1_files/libs/quarto-html/popper.min.js"></script>
-<script src="assignment-1_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="assignment-1_files/libs/quarto-html/anchor.min.js"></script>
-<link href="assignment-1_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="assignment-1_files/libs/quarto-html/quarto-syntax-highlighting-dark-a75cdc3ddf0fcd1d3add0737ca7f6b29.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="assignment-1_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="assignment-1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="assignment-1_files/libs/bootstrap/bootstrap-683c0612d22a83c94128c4bb10e89612.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assignments/assignment-2.html" rel="next">
+<link href="../assignments.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-a75cdc3ddf0fcd1d3add0737ca7f6b29.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b732935812e36232cf88540c03cd8eb8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
 
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Hüseyin Emre Bacak’s Analytics Lab</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../posts.html"> 
+<span class="menu-text">My Posts</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-emu660-coursework" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">EMU660 Coursework</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-emu660-coursework">    
+        <li>
+    <a class="dropdown-item" href="../assignments.html">
+ <span class="dropdown-text">Assignments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../project.html">
+ <span class="dropdown-text">Project</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/hemrebacak" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/hemre-bacak/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignments/assignment-1.html">Assignment 1</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">My Assignments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Assignment 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 2</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#task-a." id="toc-task-a." class="nav-link active" data-scroll-target="#task-a.">Task a.</a></li>
+  <li><a href="#task-b." id="toc-task-b." class="nav-link" data-scroll-target="#task-b.">Task b.</a>
+  <ul class="collapse">
+  <li><a href="#çoktan-seçmeli-soru" id="toc-çoktan-seçmeli-soru" class="nav-link" data-scroll-target="#çoktan-seçmeli-soru">Çoktan Seçmeli Soru</a></li>
+  <li><a href="#açık-uçlu-soru" id="toc-açık-uçlu-soru" class="nav-link" data-scroll-target="#açık-uçlu-soru">Açık Uçlu Soru</a></li>
+  </ul></li>
+  <li><a href="#task-c." id="toc-task-c." class="nav-link" data-scroll-target="#task-c.">Task c.</a>
+  <ul class="collapse">
+  <li><a href="#uploading-mtcars-data-to-a-variable-called-data_of_task_c" id="toc-uploading-mtcars-data-to-a-variable-called-data_of_task_c" class="nav-link" data-scroll-target="#uploading-mtcars-data-to-a-variable-called-data_of_task_c">Uploading “mtcars” data to a variable called “data_of_task_c”</a></li>
+  <li><a href="#looking-to-the-structure-of-the-data" id="toc-looking-to-the-structure-of-the-data" class="nav-link" data-scroll-target="#looking-to-the-structure-of-the-data">Looking to the structure of the data</a></li>
+  <li><a href="#observing-head-of-the-data" id="toc-observing-head-of-the-data" class="nav-link" data-scroll-target="#observing-head-of-the-data">Observing head of the data</a></li>
+  <li><a href="#custom-summary-function-called-compute_stats" id="toc-custom-summary-function-called-compute_stats" class="nav-link" data-scroll-target="#custom-summary-function-called-compute_stats">Custom Summary Function called “compute_stats”</a></li>
+  <li><a href="#applying-the-function-using-a-loop" id="toc-applying-the-function-using-a-loop" class="nav-link" data-scroll-target="#applying-the-function-using-a-loop">Applying the Function Using a Loop</a></li>
+  <li><a href="#sapply-approach" id="toc-sapply-approach" class="nav-link" data-scroll-target="#sapply-approach">sapply Approach</a></li>
+  <li><a href="#apply-approach" id="toc-apply-approach" class="nav-link" data-scroll-target="#apply-approach">apply Approach</a></li>
+  </ul></li>
+  <li><a href="#task-d." id="toc-task-d." class="nav-link" data-scroll-target="#task-d.">Task d.</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -64,8 +258,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>A more user-friendly-to-read version of Assignment 1 is <a href="assignment-1-readable.html">here.</a></p>
-<div class="matrix-bg">
+<p>A more user-friendly-to-read version of Assignment 1 is <a href="..\docs/readable-versions/assignment-1-readable.pdf">here.</a></p>
 <section id="task-a." class="level1">
 <h1>Task a.</h1>
 <p>I chose a video featuring Professor Mustafa Baydoğan to write this brief summary. I took his classes during my undergraduate studies at Boğaziçi University, and I really like both his personality and his teaching style.</p>
@@ -88,10 +281,632 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Cevap:</strong> İş hayatında şirket patronlarına veya müşterilere bir karar destek mekanizmasını sunarken genelde o mekanizmanın “neden” bu şekilde kurgulandığını anlatmak zorunludur. Mekanizmanın açıklanabilir olması sayesinde şirket örn. “üst taraf ile alt taraf arasındaki genç/yaşlı odun yoğunluğu farkından dolayı bu kerestenin yamulacağı” bilgisini edinebilmiş ve fırınlama öncesi kerestenin uçlarından sabitleme gibi önleyici fiziksel aksiyonlar alarak düz kereste elde edebilmiştir. Çok fazla parametresi olan ve içsel özellik çıkaran derin öğrenme modelleri videonun kaydedildiği dönemde veya yapısı gereği bu seviyede basit ve nedensel yorumlanabilirliğe kapalı olduğu için tercih edilmemiştir.</p>
 </section>
 </section>
+<section id="task-c." class="level1">
+<h1>Task c.</h1>
+<section id="uploading-mtcars-data-to-a-variable-called-data_of_task_c" class="level2">
+<h2 class="anchored" data-anchor-id="uploading-mtcars-data-to-a-variable-called-data_of_task_c">Uploading “mtcars” data to a variable called “data_of_task_c”</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data_of_task_c <span class="ot">&lt;-</span> mtcars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="looking-to-the-structure-of-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="looking-to-the-structure-of-the-data">Looking to the structure of the data</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_of_task_c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   32 obs. of  11 variables:
+ $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+ $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+ $ disp: num  160 160 108 258 360 ...
+ $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+ $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+ $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+ $ qsec: num  16.5 17 18.6 19.4 17 ...
+ $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+ $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+ $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+ $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_of_task_c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   32 obs. of  11 variables:
+ $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+ $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+ $ disp: num  160 160 108 258 360 ...
+ $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+ $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+ $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+ $ qsec: num  16.5 17 18.6 19.4 17 ...
+ $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+ $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+ $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+ $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</code></pre>
+</div>
+</div>
+</section>
+<section id="observing-head-of-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="observing-head-of-the-data">Observing head of the data</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_of_task_c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+</div>
+</div>
+</section>
+<section id="custom-summary-function-called-compute_stats" class="level2">
+<h2 class="anchored" data-anchor-id="custom-summary-function-called-compute_stats">Custom Summary Function called “compute_stats”</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>compute_stats <span class="ot">&lt;-</span> <span class="cf">function</span>(numeric_vector) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  mean_numeric_vector <span class="ot">&lt;-</span> <span class="fu">mean</span>(numeric_vector)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  median_numeric_vector <span class="ot">&lt;-</span> <span class="fu">median</span>(numeric_vector)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  variance_numeric_vector <span class="ot">&lt;-</span> <span class="fu">var</span>(numeric_vector)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  iqr_numeric_vector <span class="ot">&lt;-</span> <span class="fu">IQR</span>(numeric_vector)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  min_numeric_vector <span class="ot">&lt;-</span> <span class="fu">min</span>(numeric_vector)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  max_numeric_vector <span class="ot">&lt;-</span> <span class="fu">max</span>(numeric_vector)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  stats_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean =</span> mean_numeric_vector, </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Median =</span> median_numeric_vector, </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Variance =</span> variance_numeric_vector, </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">IQR =</span> iqr_numeric_vector, </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Minimum =</span> min_numeric_vector, </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Maximum =</span> max_numeric_vector</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(stats_list)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="applying-the-function-using-a-loop" class="level2">
+<h2 class="anchored" data-anchor-id="applying-the-function-using-a-loop">Applying the Function Using a Loop</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#for loop iterates through 11 columns in the data</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x <span class="cf">in</span> <span class="fu">names</span>(data_of_task_c)) {</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">class</span>(data_of_task_c[[x]]) <span class="sc">==</span> <span class="st">"numeric"</span>) { <span class="co">#if a column contains numeric values, compute_stats function is executed for that column</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    stat_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">compute_stats</span>(data_of_task_c[[x]]))</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rownames</span>(stat_df) <span class="ot">&lt;-</span> x</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(df, stat_df)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">next</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Mean  Median     Variance       IQR Minimum Maximum
+mpg   20.090625  19.200 3.632410e+01   7.37500  10.400  33.900
+cyl    6.187500   6.000 3.189516e+00   4.00000   4.000   8.000
+disp 230.721875 196.300 1.536080e+04 205.17500  71.100 472.000
+hp   146.687500 123.000 4.700867e+03  83.50000  52.000 335.000
+drat   3.596563   3.695 2.858814e-01   0.84000   2.760   4.930
+wt     3.217250   3.325 9.573790e-01   1.02875   1.513   5.424
+qsec  17.848750  17.710 3.193166e+00   2.00750  14.500  22.900
+vs     0.437500   0.000 2.540323e-01   1.00000   0.000   1.000
+am     0.406250   0.000 2.489919e-01   1.00000   0.000   1.000
+gear   3.687500   4.000 5.443548e-01   1.00000   3.000   5.000
+carb   2.812500   2.000 2.608871e+00   2.00000   1.000   8.000</code></pre>
+</div>
+</div>
+</section>
+<section id="sapply-approach" class="level2">
+<h2 class="anchored" data-anchor-id="sapply-approach">sapply Approach</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data_only_numeric_columns <span class="ot">&lt;-</span> data_of_task_c[, <span class="fu">sapply</span>(data_of_task_c, is.numeric)] <span class="co"># by this line of code, we get columns with only numeric values in our data</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(data_only_numeric_columns, compute_stats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         mpg      cyl      disp     hp       drat      wt       qsec    
+Mean     20.09062 6.1875   230.7219 146.6875 3.596563  3.21725  17.84875
+Median   19.2     6        196.3    123      3.695     3.325    17.71   
+Variance 36.3241  3.189516 15360.8  4700.867 0.2858814 0.957379 3.193166
+IQR      7.375    4        205.175  83.5     0.84      1.02875  2.0075  
+Minimum  10.4     4        71.1     52       2.76      1.513    14.5    
+Maximum  33.9     8        472      335      4.93      5.424    22.9    
+         vs        am        gear      carb    
+Mean     0.4375    0.40625   3.6875    2.8125  
+Median   0         0         4         2       
+Variance 0.2540323 0.2489919 0.5443548 2.608871
+IQR      1         1         1         2       
+Minimum  0         0         3         1       
+Maximum  1         1         5         8       </code></pre>
+</div>
+</div>
+</section>
+<section id="apply-approach" class="level2">
+<h2 class="anchored" data-anchor-id="apply-approach">apply Approach</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(data_of_task_c, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> compute_stats) <span class="co">#using apply function for applying compute_stats across all columns of the data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$mpg
+$mpg$Mean
+[1] 20.09062
+
+$mpg$Median
+[1] 19.2
+
+$mpg$Variance
+[1] 36.3241
+
+$mpg$IQR
+[1] 7.375
+
+$mpg$Minimum
+[1] 10.4
+
+$mpg$Maximum
+[1] 33.9
+
+
+$cyl
+$cyl$Mean
+[1] 6.1875
+
+$cyl$Median
+[1] 6
+
+$cyl$Variance
+[1] 3.189516
+
+$cyl$IQR
+[1] 4
+
+$cyl$Minimum
+[1] 4
+
+$cyl$Maximum
+[1] 8
+
+
+$disp
+$disp$Mean
+[1] 230.7219
+
+$disp$Median
+[1] 196.3
+
+$disp$Variance
+[1] 15360.8
+
+$disp$IQR
+[1] 205.175
+
+$disp$Minimum
+[1] 71.1
+
+$disp$Maximum
+[1] 472
+
+
+$hp
+$hp$Mean
+[1] 146.6875
+
+$hp$Median
+[1] 123
+
+$hp$Variance
+[1] 4700.867
+
+$hp$IQR
+[1] 83.5
+
+$hp$Minimum
+[1] 52
+
+$hp$Maximum
+[1] 335
+
+
+$drat
+$drat$Mean
+[1] 3.596563
+
+$drat$Median
+[1] 3.695
+
+$drat$Variance
+[1] 0.2858814
+
+$drat$IQR
+[1] 0.84
+
+$drat$Minimum
+[1] 2.76
+
+$drat$Maximum
+[1] 4.93
+
+
+$wt
+$wt$Mean
+[1] 3.21725
+
+$wt$Median
+[1] 3.325
+
+$wt$Variance
+[1] 0.957379
+
+$wt$IQR
+[1] 1.02875
+
+$wt$Minimum
+[1] 1.513
+
+$wt$Maximum
+[1] 5.424
+
+
+$qsec
+$qsec$Mean
+[1] 17.84875
+
+$qsec$Median
+[1] 17.71
+
+$qsec$Variance
+[1] 3.193166
+
+$qsec$IQR
+[1] 2.0075
+
+$qsec$Minimum
+[1] 14.5
+
+$qsec$Maximum
+[1] 22.9
+
+
+$vs
+$vs$Mean
+[1] 0.4375
+
+$vs$Median
+[1] 0
+
+$vs$Variance
+[1] 0.2540323
+
+$vs$IQR
+[1] 1
+
+$vs$Minimum
+[1] 0
+
+$vs$Maximum
+[1] 1
+
+
+$am
+$am$Mean
+[1] 0.40625
+
+$am$Median
+[1] 0
+
+$am$Variance
+[1] 0.2489919
+
+$am$IQR
+[1] 1
+
+$am$Minimum
+[1] 0
+
+$am$Maximum
+[1] 1
+
+
+$gear
+$gear$Mean
+[1] 3.6875
+
+$gear$Median
+[1] 4
+
+$gear$Variance
+[1] 0.5443548
+
+$gear$IQR
+[1] 1
+
+$gear$Minimum
+[1] 3
+
+$gear$Maximum
+[1] 5
+
+
+$carb
+$carb$Mean
+[1] 2.8125
+
+$carb$Median
+[1] 2
+
+$carb$Variance
+[1] 2.608871
+
+$carb$IQR
+[1] 2
+
+$carb$Minimum
+[1] 1
+
+$carb$Maximum
+[1] 8</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="task-d." class="level1">
+<h1>Task d.</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>my_first <span class="ot">&lt;-</span> <span class="st">"HUSEYIN_EMRE"</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>my_birth_year <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> (<span class="fu">nchar</span>(my_first) <span class="sc">+</span> my_birth_year) <span class="sc">%%</span> <span class="dv">15</span> <span class="sc">+</span> <span class="dv">8</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>data_of_task_d <span class="ot">&lt;-</span> polls_us_election_2016</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># displaying k row from head or tail of the data by checking whether k is odd or even</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(k <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span>){</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">tail</span>(data_of_task_d, <span class="at">n =</span> k))</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">head</span>(data_of_task_d, <span class="at">n =</span> k))</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        state  startdate    enddate
+1        U.S. 2016-11-03 2016-11-06
+2        U.S. 2016-11-01 2016-11-07
+3        U.S. 2016-11-02 2016-11-06
+4        U.S. 2016-11-04 2016-11-07
+5        U.S. 2016-11-03 2016-11-06
+6        U.S. 2016-11-03 2016-11-06
+7        U.S. 2016-11-02 2016-11-06
+8        U.S. 2016-11-03 2016-11-05
+9  New Mexico 2016-11-06 2016-11-06
+10       U.S. 2016-11-04 2016-11-07
+                                                     pollster grade samplesize
+1                                    ABC News/Washington Post    A+       2220
+2                                     Google Consumer Surveys     B      26574
+3                                                       Ipsos    A-       2195
+4                                                      YouGov     B       3677
+5                                            Gravis Marketing    B-      16639
+6  Fox News/Anderson Robbins Research/Shaw &amp; Company Research     A       1295
+7                                     CBS News/New York Times    A-       1426
+8                                NBC News/Wall Street Journal    A-       1282
+9                                                    Zia Poll  &lt;NA&gt;       8439
+10                                                   IBD/TIPP    A-       1107
+   population rawpoll_clinton rawpoll_trump rawpoll_johnson rawpoll_mcmullin
+1          lv           47.00         43.00            4.00               NA
+2          lv           38.03         35.69            5.46               NA
+3          lv           42.00         39.00            6.00               NA
+4          lv           45.00         41.00            5.00               NA
+5          rv           47.00         43.00            3.00               NA
+6          lv           48.00         44.00            3.00               NA
+7          lv           45.00         41.00            5.00               NA
+8          lv           44.00         40.00            6.00               NA
+9          lv           46.00         44.00            6.00               NA
+10         lv           41.20         42.70            7.10               NA
+   adjpoll_clinton adjpoll_trump adjpoll_johnson adjpoll_mcmullin
+1         45.20163      41.72430        4.626221               NA
+2         43.34557      41.21439        5.175792               NA
+3         42.02638      38.81620        6.844734               NA
+4         45.65676      40.92004        6.069454               NA
+5         46.84089      42.33184        3.726098               NA
+6         49.02208      43.95631        3.057876               NA
+7         45.11649      40.92722        4.341786               NA
+8         43.58576      40.77325        5.365788               NA
+9         44.82594      41.59978        7.870127               NA
+10        42.92745      42.23545        6.316175               NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_of_task_d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   4208 obs. of  15 variables:
+ $ state           : Factor w/ 57 levels "Alabama","Alaska",..: 50 50 50 50 50 50 50 50 37 50 ...
+ $ startdate       : Date, format: "2016-11-03" "2016-11-01" ...
+ $ enddate         : Date, format: "2016-11-06" "2016-11-07" ...
+ $ pollster        : Factor w/ 196 levels "ABC News/Washington Post",..: 1 63 81 194 65 55 18 113 195 76 ...
+ $ grade           : Factor w/ 10 levels "D","C-","C","C+",..: 10 6 8 6 5 9 8 8 NA 8 ...
+ $ samplesize      : int  2220 26574 2195 3677 16639 1295 1426 1282 8439 1107 ...
+ $ population      : chr  "lv" "lv" "lv" "lv" ...
+ $ rawpoll_clinton : num  47 38 42 45 47 ...
+ $ rawpoll_trump   : num  43 35.7 39 41 43 ...
+ $ rawpoll_johnson : num  4 5.46 6 5 3 3 5 6 6 7.1 ...
+ $ rawpoll_mcmullin: num  NA NA NA NA NA NA NA NA NA NA ...
+ $ adjpoll_clinton : num  45.2 43.3 42 45.7 46.8 ...
+ $ adjpoll_trump   : num  41.7 41.2 38.8 40.9 42.3 ...
+ $ adjpoll_johnson : num  4.63 5.18 6.84 6.07 3.73 ...
+ $ adjpoll_mcmullin: num  NA NA NA NA NA NA NA NA NA NA ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculating total number of NAs in the data </span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(data_of_task_d))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11604</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a data frame which counts NAs for each column of the data</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>df_for_na <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(x <span class="cf">in</span> <span class="fu">names</span>(data_of_task_d)) {</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  na_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">sum</span>(<span class="fu">is.na</span>(data_of_task_d[[x]])))</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames</span>(na_df) <span class="ot">&lt;-</span> x</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(na_df) <span class="ot">&lt;-</span> <span class="st">"Sum of NAs"</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  df_for_na <span class="ot">&lt;-</span> <span class="fu">rbind</span>(df_for_na, na_df)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>df_for_na</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Sum of NAs
+state                     0
+startdate                 0
+enddate                   0
+pollster                  0
+grade                   429
+samplesize                1
+population                0
+rawpoll_clinton           0
+rawpoll_trump             0
+rawpoll_johnson        1409
+rawpoll_mcmullin       4178
+adjpoll_clinton           0
+adjpoll_trump             0
+adjpoll_johnson        1409
+adjpoll_mcmullin       4178</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sorting the data frame which counts NAs for each column of the data by descending order</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>sorted_df <span class="ot">&lt;-</span> df_for_na[<span class="fu">order</span>(<span class="sc">-</span>df_for_na[, <span class="dv">1</span>]), , drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>sorted_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Sum of NAs
+rawpoll_mcmullin       4178
+adjpoll_mcmullin       4178
+rawpoll_johnson        1409
+adjpoll_johnson        1409
+grade                   429
+samplesize                1
+state                     0
+startdate                 0
+enddate                   0
+pollster                  0
+population                0
+rawpoll_clinton           0
+rawpoll_trump             0
+adjpoll_clinton           0
+adjpoll_trump             0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># displaying top 8</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(sorted_df, <span class="at">n =</span> <span class="dv">8</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Sum of NAs
+rawpoll_mcmullin       4178
+adjpoll_mcmullin       4178
+rawpoll_johnson        1409
+adjpoll_johnson        1409
+grade                   429
+samplesize                1
+state                     0
+startdate                 0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> data_of_task_d</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(x <span class="cf">in</span> <span class="fu">names</span>(new_data)) {</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">class</span>(new_data[[x]]) <span class="sc">==</span> <span class="st">"numeric"</span>) {</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    new_data[[x]][<span class="fu">is.na</span>(new_data[[x]])] <span class="ot">&lt;-</span> my_birth_year <span class="sc">+</span> k</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    new_data[[x]] <span class="ot">&lt;-</span> <span class="fu">as.character</span>(new_data[[x]]) <span class="co"># since I have columns which store Date or Factor information in the data, I need to convert all non-numeric columns to character first to insert paste0(my_first, "_", k) without error</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    new_data[[x]][<span class="fu">is.na</span>(new_data[[x]])] <span class="ot">&lt;-</span> <span class="fu">paste0</span>(my_first, <span class="st">"_"</span>, k)</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(k <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span>){</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">tail</span>(new_data, <span class="at">n =</span> k))</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">head</span>(new_data, <span class="at">n =</span> k))</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        state  startdate    enddate
+1        U.S. 2016-11-03 2016-11-06
+2        U.S. 2016-11-01 2016-11-07
+3        U.S. 2016-11-02 2016-11-06
+4        U.S. 2016-11-04 2016-11-07
+5        U.S. 2016-11-03 2016-11-06
+6        U.S. 2016-11-03 2016-11-06
+7        U.S. 2016-11-02 2016-11-06
+8        U.S. 2016-11-03 2016-11-05
+9  New Mexico 2016-11-06 2016-11-06
+10       U.S. 2016-11-04 2016-11-07
+                                                     pollster           grade
+1                                    ABC News/Washington Post              A+
+2                                     Google Consumer Surveys               B
+3                                                       Ipsos              A-
+4                                                      YouGov               B
+5                                            Gravis Marketing              B-
+6  Fox News/Anderson Robbins Research/Shaw &amp; Company Research               A
+7                                     CBS News/New York Times              A-
+8                                NBC News/Wall Street Journal              A-
+9                                                    Zia Poll HUSEYIN_EMRE_10
+10                                                   IBD/TIPP              A-
+   samplesize population rawpoll_clinton rawpoll_trump rawpoll_johnson
+1        2220         lv           47.00         43.00            4.00
+2       26574         lv           38.03         35.69            5.46
+3        2195         lv           42.00         39.00            6.00
+4        3677         lv           45.00         41.00            5.00
+5       16639         rv           47.00         43.00            3.00
+6        1295         lv           48.00         44.00            3.00
+7        1426         lv           45.00         41.00            5.00
+8        1282         lv           44.00         40.00            6.00
+9        8439         lv           46.00         44.00            6.00
+10       1107         lv           41.20         42.70            7.10
+   rawpoll_mcmullin adjpoll_clinton adjpoll_trump adjpoll_johnson
+1              2010        45.20163      41.72430        4.626221
+2              2010        43.34557      41.21439        5.175792
+3              2010        42.02638      38.81620        6.844734
+4              2010        45.65676      40.92004        6.069454
+5              2010        46.84089      42.33184        3.726098
+6              2010        49.02208      43.95631        3.057876
+7              2010        45.11649      40.92722        4.341786
+8              2010        43.58576      40.77325        5.365788
+9              2010        44.82594      41.59978        7.870127
+10             2010        42.92745      42.23545        6.316175
+   adjpoll_mcmullin
+1              2010
+2              2010
+3              2010
+4              2010
+5              2010
+6              2010
+7              2010
+8              2010
+9              2010
+10             2010</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculating total number of NAs in the data</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(new_data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cross-check with anyNA</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anyNA</span>(new_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
 </div>
 
-</main>
-<!-- /main column -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -492,7 +1307,32 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../assignments.html" class="pagination-link" aria-label="My Assignments">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">My Assignments</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../assignments/assignment-2.html" class="pagination-link" aria-label="Assignment 2">
+        <span class="nav-page-text">Assignment 2</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hacettepe IE - EMU660 - Spring 2026</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

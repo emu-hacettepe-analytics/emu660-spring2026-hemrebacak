@@ -1,11 +1,10 @@
-A more user-friendly-to-read version of Assignment 1 is [here.](assignment-1-readable.html)
+A more user-friendly-to-read version of Assignment 1 is here.
 
-::: matrix-bg
 ---
 title: "Assignment 1"
 format:
   html:
-    theme: matrix.scss
+    theme: darkly
 ---
 
 # Task a.
@@ -122,7 +121,89 @@ apply(data_of_task_c, MARGIN = 2, FUN = compute_stats) #using apply function for
 # Task d.
 
 ```{r}
+my_first <- "HUSEYIN_EMRE"
+my_birth_year <- 2000
+
+k <- (nchar(my_first) + my_birth_year) %% 15 + 8
+
 library(dslabs)
 data_of_task_d <- polls_us_election_2016
+
+# displaying k row from head or tail of the data by checking whether k is odd or even
+
+if(k %% 2 == 1){
+  print(tail(data_of_task_d, n = k))
+} else {
+  print(head(data_of_task_d, n = k))
+}
+
+str(data_of_task_d)
+
+
 ```
-:::
+
+```{r}
+
+# calculating total number of NAs in the data 
+sum(is.na(data_of_task_d))
+
+```
+
+```{r}
+
+# creating a data frame which counts NAs for each column of the data
+
+df_for_na <- data.frame()
+
+for(x in names(data_of_task_d)) {
+  na_df <- data.frame(sum(is.na(data_of_task_d[[x]])))
+  rownames(na_df) <- x
+  colnames(na_df) <- "Sum of NAs"
+  df_for_na <- rbind(df_for_na, na_df)
+}
+
+df_for_na
+```
+
+```{r}
+# sorting the data frame which counts NAs for each column of the data by descending order
+
+sorted_df <- df_for_na[order(-df_for_na[, 1]), , drop = FALSE]
+sorted_df
+
+# displaying top 8
+print(head(sorted_df, n = 8))
+```
+
+```{r}
+new_data <- data_of_task_d
+
+for(x in names(new_data)) {
+  if (class(new_data[[x]]) == "numeric") {
+    
+    new_data[[x]][is.na(new_data[[x]])] <- my_birth_year + k
+    
+  } else {
+    
+    new_data[[x]] <- as.character(new_data[[x]]) # since I have columns which store Date or Factor information in the data, I need to convert all non-numeric columns to character first to insert paste0(my_first, "_", k) without error
+    
+    new_data[[x]][is.na(new_data[[x]])] <- paste0(my_first, "_", k)
+    
+  }
+}
+
+if(k %% 2 == 1){
+  print(tail(new_data, n = k))
+} else {
+  print(head(new_data, n = k))
+}
+
+```
+
+```{r}
+# calculating total number of NAs in the data
+sum(is.na(new_data))
+
+# cross-check with anyNA
+anyNA(new_data)
+```
