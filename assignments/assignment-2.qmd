@@ -1,8 +1,5 @@
 ---
 title: "Assignment 2"
-format:
-  html:
-    theme: matrix.scss
 ---
 
 # Assignment 2

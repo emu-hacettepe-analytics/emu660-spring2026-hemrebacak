@@ -1,10 +1,7 @@
-A more user-friendly-to-read version of Assignment 1 is here.
+PDF version of Assignment 1 is [here.](/docs/readable-versions/assignment-1-readable.pdf)
 
 ---
 title: "Assignment 1"
-format:
-  html:
-    theme: darkly
 ---
 
 # Task a.
@@ -45,6 +42,10 @@ data_of_task_c <- mtcars
 ```
 
 ## Looking to the structure of the data
+
+```{r}
+str(data_of_task_c)
+```
 
 ```{r}
 str(data_of_task_c)

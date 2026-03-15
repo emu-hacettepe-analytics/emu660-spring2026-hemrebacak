@@ -1,1 +1,11 @@
 /* css styles */
+
+body.assignment-custom-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.assignment-custom-theme h1, 
+body.assignment-custom-theme h2 {
+  color: #58a6ff;
+}

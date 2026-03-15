@@ -1,10 +1,7 @@
-A more user-friendly-to-read version of Assignment 1 is [here.](/docs/readable-versions/assignment-1-readable.pdf)
+PDF version of Assignment 1 is [here.](/docs/readable-versions/assignment-1-readable.pdf)
 
 ---
 title: "Assignment 1"
-format:
-  html:
-    theme: matrix.scss
 ---
 
 # Task a.

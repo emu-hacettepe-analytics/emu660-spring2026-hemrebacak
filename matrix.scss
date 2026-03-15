@@ -53,3 +53,11 @@ body {
 h1, h2, h3, p {
   text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
 }
+body.assignment-custom-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+body.assignment-custom-theme h1, 
+body.assignment-custom-theme h2 {
+  color: #58a6ff;
+}

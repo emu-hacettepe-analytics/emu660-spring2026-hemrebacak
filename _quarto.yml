@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "!assignments/"
 
 website:
   title: "Hüseyin Emre Bacak's Analytics Lab"
@@ -30,8 +33,10 @@ website:
       search: true
       contents:
         - assignments.qmd
-        - assignments/assignment-1.qmd
-        - assignments/assignment-2.qmd
+        - href: assignments/assignment-1.html
+          text: "Assignment 1"
+        - href: assignments/assignment-2.html
+          text: "Assignment 2"
   page-navigation: true
   back-to-top-navigation: true
   page-footer:
