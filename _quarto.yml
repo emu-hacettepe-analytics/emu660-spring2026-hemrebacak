@@ -19,7 +19,7 @@ website:
           - text: Assignments
             href: assignments.qmd
           - text: Project
-            href: project/project.qmd
+            href: project/project.html
             
     tools:
       - icon: github
