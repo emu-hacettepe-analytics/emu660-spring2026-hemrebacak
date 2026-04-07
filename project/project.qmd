@@ -1,7 +1,140 @@
----
-title: "EMU660 Project"
----
+::: {style="text-align: center;"}
+# Financial Power vs Sporting Success: A 20-Year Analysis of the Turkish Super League
+:::
 
-### Emre
+# 1. Project Overview and Scope
 
-# TEST
+This project aims to analyze the relationship between financial strength and on-field performance of football clubs in the Turkish Super League over a long-term period. Football has increasingly become a data-driven industry where financial resources play a crucial role in determining competitive success. However, the extent to which financial power translates into sporting success remains an open question.
+
+The primary objective of this study is to investigate whether higher squad values and financial indicators lead to better league performance. In addition to a single-season analysis, this project extends its scope to a longitudinal perspective by examining how clubs’ financial structures and performances have evolved over the past 20 years (from the 2004–2005 season to the 2024–2025 season).
+
+More specifically, the project will address the following questions:
+
+-   Is there a strong relationship between squad market value and league performance?
+-   Do financially stronger clubs consistently achieve better results over time?
+-   How have financial disparities between clubs evolved over the last two decades?
+-   Which clubs outperform or underperform relative to their financial capacity?
+
+By combining financial and performance datasets, this project aims to provide both descriptive and analytical insights into the efficiency and competitiveness of clubs in the Turkish football ecosystem.
+
+# 2. Data
+
+## 2.1 Data Source
+
+The datasets used in this project are collected from two primary sources:
+
+-   Transfermarkt/Startseite: Used to obtain financial and squad-related information such as total squad value, average player value, average age, squad size, and number of foreign players.
+-   Transfermarkt/Tabelle: Used to collect official league performance statistics such as points, wins, draws, losses, goals scored, goals conceded, and league rankings.
+
+The data has been collected through web scraping techniques and manually verified for consistency. The Python script used can be downloaded by clicking [here.](scraping.py)
+
+The script is created thanks to Gemini 3.1 GenAI tool. You can refer to prompts used for creation of the script [here.](https://gemini.google.com/share/161573cc173b)
+
+## 2.2 General Information About Data
+
+The project utilizes two main datasets covering a 20-season period from 2004–2005 to 2024–2025.
+
+-   Dataset 1: Financial and Squad Data (superlig_kadro_verileri)
+
+This dataset contains team-level financial and structural information for each season:
+
+**Takim (Team name)**
+
+**Sezon (Season)**
+
+**Kadro_Sayisi (Squad size)**
+
+**Ortalama_Yas (Average age)**
+
+**Yabanci_Oyuncu_Sayisi (Number of foreign players)**
+
+**Ortalama_Piyasa_Degeri_Euro (Average player market value)**
+
+**Toplam_Piyasa_Degeri_Euro (Total squad market value)**
+
+-   Dataset 2: League Performance Data (superlig_puan_durumu_verileri)
+
+This dataset contains performance-related statistics for each team-season:
+
+**Takim (Team name)**
+
+**Sezon (Season)**
+
+**Galibiyet (Wins)**
+
+**Beraberlik (Draws)**
+
+**Maglubiyet (Losses)**
+
+**Atilan_Gol (Goals scored)**
+
+**Yenilen_Gol (Goals conceded)**
+
+**Averaj (Goal difference)**
+
+**Puan (Total points)**
+
+## 2.3 Reason of Choice
+
+The choice of this dataset is motivated by several factors:
+
+-   **Relevance to Türkiye:** The dataset focuses on the Turkish Super League, aligning with the course recommendation to use locally relevant data.
+-   **Richness and size:** The dataset spans 20 seasons and includes multiple variables, making it suitable for in-depth analysis.
+-   **Real-world applicability:** The relationship between financial investment and performance is a widely discussed topic in sports economics.
+-   **Availability of multiple dimensions:** The dataset allows for combining financial, demographic, and performance variables.
+-   **Longitudinal analysis opportunity:** The availability of long-term data enables trend analysis and structural comparisons across years.
+
+This combination makes the dataset highly suitable for both exploratory and advanced analytical techniques.
+
+## 2.4 Preprocessing
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+kadro_verileri <- read.csv('superlig_kadro_verileri.csv')
+puan_durumu_verileri <- read.csv('superlig_puan_durumu_verileri.csv')
+
+save(kadro_verileri, puan_durumu_verileri, file = "myData.RData")
+
+```
+
+Datasets are stored as .csv files and imported into R. You can download the current version of the dataset in R format [here.](myData.RData)
+
+# 3. Planned Analyses
+
+In this project, multiple analyses will be conducted to investigate the relationship between financial strength and sporting performance of clubs in the Turkish Super League.
+
+The planned analyses are as follows:
+
+-   **Correlation Analysis:** The relationship between total squad market value and total points will be examined to understand whether financially stronger teams perform better.
+-   **Regression Analysis:** A linear regression model will be used to quantify the effect of financial variables (e.g., squad value, average player value) on team performance (points).
+-   **Efficiency Analysis:** Clubs will be evaluated based on how efficiently they convert financial resources into points (e.g., points per million euros).
+-   **Top vs Bottom Teams Comparison:** Financial and structural differences between top-ranked and bottom-ranked teams will be compared.
+-   **Distribution Analysis:** The distribution of squad values, average ages, and performance indicators will be analyzed to understand overall league structure.
+-   **Foreign Players Impact Analysis:** The relationship between the number of foreign players and team success will be investigated.
+-   **Age Structure Analysis:** The effect of average squad age on team performance will be explored.
+-   **Goal Statistics Analysis:** The relationship between financial strength and offensive/defensive performance (goals scored and conceded) will be analyzed.
+-   **Outlier Detection:** Clubs that significantly overperform or underperform relative to their financial strength will be identified.
+-   **Clustering Analysis:** Teams will be grouped based on financial and performance similarities to identify patterns within the league.
+-   **Longitudinal Analysis (20-Year Club Evolution):** The financial and sporting evolution of clubs over the past 20 years will be analyzed. This includes examining trends in squad value, financial growth, and performance consistency, as well as identifying clubs that improved or declined over time.
+
+## 3.1 Exploratory Data Analysis
+
+to be continued
+
+## 3.2 Trend Analysis
+
+to be continued
+
+## 3.3 Model Fitting
+
+to be continued
+
+## 3.4 Results
+
+to be continued
+
+# 4. Results and Key Takeaways
+
+to be continued
