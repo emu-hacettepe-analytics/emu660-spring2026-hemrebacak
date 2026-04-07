@@ -1,5 +1,0 @@
----
-title: "Welcome, Neo. This is Huseyin Emre Bacak's Project for EMU660."
----
-
-Stay tuned...

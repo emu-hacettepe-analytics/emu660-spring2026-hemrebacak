@@ -4,7 +4,7 @@ project:
   render:
     - "*.qmd"
     - "!assignments/"
-    - "!project.qmd"
+    - "!project/"
 website:
   title: "Hüseyin Emre Bacak's Analytics Lab"
   navbar:
@@ -19,7 +19,7 @@ website:
           - text: Assignments
             href: assignments.qmd
           - text: Project
-            href: project.qmd
+            href: project/project.qmd
             
     tools:
       - icon: github
