@@ -1,6 +1,4 @@
-::: {style="text-align: center;"}
 # Financial Power vs Sporting Success: A 20-Year Analysis of the Turkish Super League
-:::
 
 # 1. Project Overview and Scope
 
@@ -11,8 +9,6 @@ The primary objective of this study is to investigate whether higher squad value
 More specifically, the project will address the following questions:
 
 -   Is there a strong relationship between squad market value and league performance?
--   Do financially stronger clubs consistently achieve better results over time?
--   How have financial disparities between clubs evolved over the last two decades?
 -   Which clubs outperform or underperform relative to their financial capacity?
 
 By combining financial and performance datasets, this project aims to provide both descriptive and analytical insights into the efficiency and competitiveness of clubs in the Turkish football ecosystem.
@@ -36,43 +32,11 @@ The project utilizes two main datasets covering a 20-season period from 2004–2
 
 -   Dataset 1: Financial and Squad Data (superlig_kadro_verileri)
 
-This dataset contains team-level financial and structural information for each season:
-
-**Takim (Team name)**
-
-**Sezon (Season)**
-
-**Kadro_Sayisi (Squad size)**
-
-**Ortalama_Yas (Average age)**
-
-**Yabanci_Oyuncu_Sayisi (Number of foreign players)**
-
-**Ortalama_Piyasa_Degeri_Euro (Average player market value)**
-
-**Toplam_Piyasa_Degeri_Euro (Total squad market value)**
+This dataset contains team-level financial and structural information for each season.
 
 -   Dataset 2: League Performance Data (superlig_puan_durumu_verileri)
 
-This dataset contains performance-related statistics for each team-season:
-
-**Takim (Team name)**
-
-**Sezon (Season)**
-
-**Galibiyet (Wins)**
-
-**Beraberlik (Draws)**
-
-**Maglubiyet (Losses)**
-
-**Atilan_Gol (Goals scored)**
-
-**Yenilen_Gol (Goals conceded)**
-
-**Averaj (Goal difference)**
-
-**Puan (Total points)**
+This dataset contains performance-related statistics for each team-season.
 
 ## 2.3 Reason of Choice
 
@@ -92,49 +56,999 @@ This combination makes the dataset highly suitable for both exploratory and adva
 #| code-fold: true
 #| code-summary: "Show the code"
 
-kadro_verileri <- read.csv('superlig_kadro_verileri.csv')
+library(dplyr)
+library(readr)
+
+superlig_kadro_verileri <- read_csv("superlig_kadro_verileri.csv")
+
+# Kadro_Verileri isimleri -> Puan_Durumu isimleri
+
+takim_map <- c(
+  "Akçaabat Sebatspor" = "A.Sebatspor",
+  "Adana Demirspor" = "Adana Demirspor",
+  "Adanaspor" = "Adanaspor",
+  "Akhisar Belediyespor" = "Akhisar Belediye",
+  "Akhisarspor" = "Akhisarspor",
+  "Alanyaspor" = "Alanyaspor",
+  "Altay SK" = "Altay SK",
+  "Ankaragücü" = "Ankaragücü",
+  "Ankaraspor" = "Ankaraspor",
+  "Antalyaspor" = "Antalyaspor",
+  "Büyükşehir Belediyesi Ankaraspor" = "BB Ankaraspor",
+  "Büyükşehir Belediye Erzurumspor" = "BB Erzurumspor",
+  "Balıkesirspor" = "Balıkesirspor",
+  "İstanbul Başakşehir FK" = "Başakşehir",
+  "Beşiktaş JK" = "Beşiktaş",
+  "Bodrum FK" = "Bodrum FK",
+  "Bucaspor" = "Bucaspor",
+  "Bursaspor" = "Bursaspor",
+  "Büyükşehir Belediyespor" = "Büyükşehir Bld",
+  "Denizlispor" = "Denizlispor",
+  "Diyarbakırspor" = "Diyarbakırspor",
+  "Elazığspor" = "Elazığspor",
+  "Eskişehirspor" = "Eskişehirspor",
+  "Eyüpspor" = "Eyüpspor",
+  "Fenerbahçe SK" = "Fenerbahçe",
+  "Gençlerbirliği Oftaşspor" = "GB Oftaşspor",
+  "Galatasaray SK" = "Galatasaray",
+  "Gaziantep FK" = "Gaziantep FK",
+  "Gaziantepspor" = "Gaziantepspor",
+  "Gençlerbirliği SK" = "Gençlerbirliği",
+  "Giresunspor" = "Giresunspor",
+  "Göztepe" = "Göztepe",
+  "Hacettepe Spor" = "Hacettepe",
+  "Hatayspor" = "Hatayspor",
+  "Kayseri Erciyesspor" = "K. Erciyesspor",
+  "Kardemir Karabükspor" = "Karabükspor",
+  "Fatih Karagümrük" = "Karagümrük",
+  "Kardemir DÇ Karabükspor" = "Kardemir Karabük",
+  "Kasımpaşa" = "Kasımpaşa",
+  "Kayserispor" = "Kayserispor",
+  "Kocaelispor" = "Kocaelispor",
+  "Konyaspor" = "Konyaspor",
+  "Malatyaspor" = "Malatyaspor",
+  "Manisaspor" = "Manisaspor",
+  "Mersin İdmanyurdu" = "Mersin İY",
+  "Orduspor" = "Orduspor",
+  "Osmanlıspor FK" = "Osmanlıspor FK",
+  "Pendikspor" = "Pendikspor",
+  "Sakaryaspor" = "Sakaryaspor",
+  "Samsunspor" = "Samsunspor",
+  "Sivasspor" = "Sivasspor",
+  "Trabzonspor" = "Trabzonspor",
+  "Yeni Malatyaspor" = "Y. Malatyaspor",
+  "Çaykur Rizespor" = "Ç. Rizespor",
+  "Ümraniyespor" = "Ümraniyespor",
+  "İstanbul Büyükşehir Belediyespor" = "İstanbul BBSK",
+  "İstanbulspor" = "İstanbulspor"
+)
+
+# Takım isimlerini güncelle
+superlig_kadro_verileri <- superlig_kadro_verileri %>%
+  mutate(
+    Takim = recode(Takim, !!!takim_map)
+  )
+
+# Kontrol -> mapping dışında kalan takım var mı?
+setdiff(unique(superlig_kadro_verileri$Takim), unname(takim_map))
+
+write_csv(
+  superlig_kadro_verileri,
+  "superlig_kadro_verileri_mapped.csv"
+)
+
+kadro_verileri <- read.csv('superlig_kadro_verileri_mapped.csv')
 puan_durumu_verileri <- read.csv('superlig_puan_durumu_verileri.csv')
 
 save(kadro_verileri, puan_durumu_verileri, file = "myData.RData")
 
 ```
 
+When we examined the data from the "Startseite" and "Tabelle" pages, we encountered a fundamental problem: the team names on the two pages do not match. For example, the team name listed as "A. Sebatspor" on the Startseite page appears as "Akçaabat Sebatspor" on the Tabelle page. To resolve this issue, we extracted the unique team names from both pages and mapped them to each other on a one-to-one basis. As part of this mapping process, we aligned the team names in the data retrieved from the two pages.
+
 Datasets are stored as .csv files and imported into R. You can download the current version of the dataset in R format [here.](myData.RData)
 
-# 3. Planned Analyses
+# 3. Analysis
 
 In this project, multiple analyses will be conducted to investigate the relationship between financial strength and sporting performance of clubs in the Turkish Super League.
 
 The planned analyses are as follows:
 
+-   **Distribution Analysis:** The distribution of squad values and performance indicators will be analyzed to understand overall league structure.
 -   **Correlation Analysis:** The relationship between total squad market value and total points will be examined to understand whether financially stronger teams perform better.
--   **Regression Analysis:** A linear regression model will be used to quantify the effect of financial variables (e.g., squad value, average player value) on team performance (points).
--   **Efficiency Analysis:** Clubs will be evaluated based on how efficiently they convert financial resources into points (e.g., points per million euros).
--   **Top vs Bottom Teams Comparison:** Financial and structural differences between top-ranked and bottom-ranked teams will be compared.
--   **Distribution Analysis:** The distribution of squad values, average ages, and performance indicators will be analyzed to understand overall league structure.
--   **Foreign Players Impact Analysis:** The relationship between the number of foreign players and team success will be investigated.
--   **Age Structure Analysis:** The effect of average squad age on team performance will be explored.
--   **Goal Statistics Analysis:** The relationship between financial strength and offensive/defensive performance (goals scored and conceded) will be analyzed.
--   **Outlier Detection:** Clubs that significantly overperform or underperform relative to their financial strength will be identified.
--   **Clustering Analysis:** Teams will be grouped based on financial and performance similarities to identify patterns within the league.
--   **Longitudinal Analysis (20-Year Club Evolution):** The financial and sporting evolution of clubs over the past 20 years will be analyzed. This includes examining trends in squad value, financial growth, and performance consistency, as well as identifying clubs that improved or declined over time.
+-   **Efficiency Analysis:** Clubs will be evaluated based on how efficiently they convert financial resources into points.
+-   **Longitudinal Analysis (20-Year Club Evolution):** The squad value and performance evolution of clubs over the past 20 years will be analyzed. This includes examining trends in squad value and performance consistency, as well as identifying clubs that improved or declined over time.
 
-## 3.1 Exploratory Data Analysis
+## 3.1 Correlation Analysis
 
-to be continued
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
 
-## 3.2 Trend Analysis
 
-to be continued
 
-## 3.3 Model Fitting
 
-to be continued
+library(tidyverse)
+library(ggrepel)
+library(scales)
 
-## 3.4 Results
 
-to be continued
 
-# 4. Results and Key Takeaways
 
-to be continued
+kadro <- read_csv("superlig_kadro_verileri_mapped.csv")
+puan  <- read_csv("superlig_puan_durumu_verileri.csv")
+
+
+
+veri <- puan %>%
+  inner_join(kadro, by = c("Takim", "Sezon"))
+
+
+# Kontrol -> birleşen gözlem sayısı
+nrow(veri)
+
+# Kontrol -> Eşleşmeyen takım-sezon var mı?
+puan_eslesmeyen <- puan %>%
+  anti_join(kadro, by = c("Takim", "Sezon"))
+
+kadro_eslesmeyen <- kadro %>%
+  anti_join(puan, by = c("Takim", "Sezon"))
+
+puan_eslesmeyen
+kadro_eslesmeyen
+
+
+
+veri_analiz <- veri %>%
+  group_by(Sezon) %>%
+  mutate(
+    Sezon_Ortalama_Piyasa_Degeri = mean(Toplam_Piyasa_Degeri_Euro, na.rm = TRUE),
+    
+    
+    Goreli_Piyasa_Degeri = Toplam_Piyasa_Degeri_Euro / Sezon_Ortalama_Piyasa_Degeri,
+    
+    
+    Log_Goreli_Piyasa_Degeri = log(Goreli_Piyasa_Degeri)
+  ) %>%
+  ungroup() %>%
+  mutate(
+    Oynanan_Mac = Galibiyet + Beraberlik + Maglubiyet,
+    
+    
+    Mac_Basina_Puan = Puan / Oynanan_Mac
+  )
+
+
+
+
+takim_sezon_sayisi <- veri_analiz %>%
+  distinct(Takim, Sezon) %>%
+  count(Takim, name = "Super_Lig_Sezon_Sayisi") %>%
+  arrange(desc(Super_Lig_Sezon_Sayisi))
+
+takim_sezon_sayisi
+
+en_az_5_sezon_takimlar <- takim_sezon_sayisi %>%
+  filter(Super_Lig_Sezon_Sayisi >= 5) %>%
+  pull(Takim)
+
+veri_grafik <- veri_analiz %>%
+  filter(Takim %in% en_az_5_sezon_takimlar)
+
+
+
+
+genel_korelasyon <- tibble(
+  Analiz = "Tum takim-sezon gozlemleri",
+  
+  Pearson = cor(
+    veri_analiz$Log_Goreli_Piyasa_Degeri,
+    veri_analiz$Mac_Basina_Puan,
+    method = "pearson",
+    use = "complete.obs"
+  ),
+  
+  Spearman = cor(
+    veri_analiz$Log_Goreli_Piyasa_Degeri,
+    veri_analiz$Mac_Basina_Puan,
+    method = "spearman",
+    use = "complete.obs"
+  ),
+  
+  Gozlem_Sayisi = nrow(veri_analiz)
+)
+
+genel_korelasyon
+
+
+
+genel_korelasyon_5_sezon <- tibble(
+  Analiz = "En az 5 sezon oynayan takimlar",
+  
+  Pearson = cor(
+    veri_grafik$Log_Goreli_Piyasa_Degeri,
+    veri_grafik$Mac_Basina_Puan,
+    method = "pearson",
+    use = "complete.obs"
+  ),
+  
+  Spearman = cor(
+    veri_grafik$Log_Goreli_Piyasa_Degeri,
+    veri_grafik$Mac_Basina_Puan,
+    method = "spearman",
+    use = "complete.obs"
+  ),
+  
+  Gozlem_Sayisi = nrow(veri_grafik)
+)
+
+genel_korelasyon_5_sezon
+
+
+sezon_bazli_korelasyon <- veri_analiz %>%
+  group_by(Sezon) %>%
+  summarise(
+    Pearson = cor(
+      Log_Goreli_Piyasa_Degeri,
+      Mac_Basina_Puan,
+      method = "pearson",
+      use = "complete.obs"
+    ),
+    
+    Spearman = cor(
+      Log_Goreli_Piyasa_Degeri,
+      Mac_Basina_Puan,
+      method = "spearman",
+      use = "complete.obs"
+    ),
+    
+    Takim_Sayisi = n(),
+    .groups = "drop"
+  ) %>%
+  arrange(Sezon)
+
+sezon_bazli_korelasyon
+
+
+ggplot(
+  veri_grafik,
+  aes(
+    x = Log_Goreli_Piyasa_Degeri,
+    y = Mac_Basina_Puan
+  )
+) +
+  geom_point(alpha = 0.65, size = 2.4) +
+  geom_smooth(method = "lm", se = TRUE, linewidth = 1) +
+  labs(
+    title = "Kadro Piyasa Değeri ile Puan Performansı Arasındaki İlişki",
+    subtitle = "X: log(sezon ortalamasına göre göreli piyasa değeri), Y: maç başına puan\nGrafikte yalnızca en az 5 sezon Süper Lig'de yer alan takımlar gösterilmiştir.",
+    x = "Log Göreli Piyasa Değeri",
+    y = "Maç Başına Puan"
+  ) +
+  theme_minimal(base_size = 13)
+
+
+
+takim_kisaltmalari <- c(
+  "Beşiktaş" = "BJK",
+  "Fenerbahçe" = "FB",
+  "Galatasaray" = "GS",
+  "Trabzonspor" = "TS",
+  "Kayserispor" = "KYS",
+  "Sivasspor" = "SVS",
+  "Konyaspor" = "KON",
+  "Antalyaspor" = "ANT",
+  "Gençlerbirliği" = "GB",
+  "Kasımpaşa" = "KAS",
+  "Ç. Rizespor" = "ÇRZ",
+  "Ankaragücü" = "AG",
+  "Bursaspor" = "BUR",
+  "Gaziantepspor" = "GAZ",
+  "Başakşehir" = "IBFK",
+  "Alanyaspor" = "ALA",
+  "Denizlispor" = "DEN",
+  "Eskişehirspor" = "ESK",
+  "Gaziantep FK" = "GFK",
+  "Göztepe" = "GOZ",
+  "Manisaspor" = "MAN",
+  "Akhisar Belediye" = "AKH",
+  "Ankaraspor" = "ANK",
+  "Hatayspor" = "HAT",
+  "Samsunspor" = "SAM",
+  "Y. Malatyaspor" = "YMS"
+)
+
+takim_ortalama_pozisyon <- veri_grafik %>%
+  group_by(Takim) %>%
+  summarise(
+    Ortalama_Log_Goreli_Deger = mean(Log_Goreli_Piyasa_Degeri, na.rm = TRUE),
+    Ortalama_Mac_Basina_Puan = mean(Mac_Basina_Puan, na.rm = TRUE),
+    Sezon_Sayisi = n_distinct(Sezon),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    Takim_Kisa = recode(Takim, !!!takim_kisaltmalari)
+  )
+
+ggplot(
+  takim_ortalama_pozisyon,
+  aes(
+    x = Ortalama_Log_Goreli_Deger,
+    y = Ortalama_Mac_Basina_Puan,
+    label = Takim_Kisa
+  )
+) +
+  geom_point(size = 3, alpha = 0.8) +
+  geom_smooth(
+    aes(
+      x = Ortalama_Log_Goreli_Deger,
+      y = Ortalama_Mac_Basina_Puan
+    ),
+    method = "lm",
+    se = TRUE,
+    inherit.aes = FALSE,
+    linewidth = 1
+  ) +
+  geom_text_repel(
+    size = 4,
+    force = 5,
+    force_pull = 0.4,
+    box.padding = 0.7,
+    point.padding = 0.45,
+    max.overlaps = Inf,
+    min.segment.length = 0,
+    segment.color = "grey45",
+    segment.size = 0.35,
+    seed = 42
+  ) +
+  labs(
+    title = "Takım Bazında Ortalama Kadro Değeri ve Ortalama Puan Performansı",
+    subtitle = "Yalnızca en az 5 sezon Süper Lig'de yer alan takımlar gösterilmiştir.",
+    x = "Ortalama Log Göreli Piyasa Değeri",
+    y = "Ortalama Maç Başına Puan"
+  ) +
+  theme_minimal(base_size = 13)
+
+
+
+sezon_bazli_korelasyon_long <- sezon_bazli_korelasyon %>%
+  pivot_longer(
+    cols = c(Pearson, Spearman),
+    names_to = "Korelasyon_Tipi",
+    values_to = "Korelasyon"
+  )
+
+ggplot(
+  sezon_bazli_korelasyon_long,
+  aes(
+    x = Sezon,
+    y = Korelasyon,
+    group = Korelasyon_Tipi,
+    color = Korelasyon_Tipi
+  )
+) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2.5) +
+  labs(
+    title = "Sezon Bazlı Korelasyon Değerleri",
+    subtitle = "Her sezon için tüm takımlar kullanılmıştır.",
+    x = "Sezon",
+    y = "Korelasyon Katsayısı",
+    color = "Korelasyon Tipi"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+
+```
+
+Due to economic inflation over time and various factors related to the football industry, the purchasing power of 1 million euros in football in 2004 is not the same as that of 1 million euros in 2024. If we had simply taken squad market value figures into account, all teams from 2004 would have appeared “super efficient,” while today’s teams would have appeared “very inefficient.” For this reason, we looked at **relative squad market value** instead of squad market value. This value is calculated by dividing each team’s squad market value by the league’s average squad market value for that season. Additionally, since squad market value figures contain extreme variations, we examined the **logarithmic transformation** of relative squad market value figures to mitigate this extremity.
+
+The number of teams in the league varied across some seasons. While the number of teams per season was mostly 18, in the season when relegation was suspended due to COVID-19 and subsequent seasons aligned with that format, the league featured 19, 20, or 21 teams. For this reason, we factored in **points per game** rather than total points.
+
+A team that has only spent a few seasons in the Turkish Super League but managed to accumulate a decent number of points by securing 3–5 wins along the way (e.g., Pendikspor or Balıkesirspor) could have topped the “most efficient team” list due to mathematical anomalies. For this reason, to filter out “yoyo clubs,” we included the criterion of **“teams that have competed in the Turkish Super League for at least 5 seasons.”**
+
+### 3.1.1 Interpreting relationship between "Log Göreli Piyasa Değeri" and "Maç Başına Puan"
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+model_korelasyon <- lm(
+  Mac_Basina_Puan ~ Log_Goreli_Piyasa_Degeri,
+  data = veri_grafik
+)
+
+summary(model_korelasyon)
+
+veri_grafik_residual <- veri_grafik %>%
+  mutate(
+    Beklenen_Mac_Basina_Puan = predict(model_korelasyon, newdata = veri_grafik),
+    Residual = Mac_Basina_Puan - Beklenen_Mac_Basina_Puan
+  )
+
+ggplot(
+  veri_grafik_residual,
+  aes(
+    x = Log_Goreli_Piyasa_Degeri,
+    y = Mac_Basina_Puan,
+    color = Residual
+  )
+) +
+  geom_hline(
+    yintercept = mean(veri_grafik_residual$Mac_Basina_Puan, na.rm = TRUE),
+    linetype = "dashed",
+    linewidth = 0.6,
+    alpha = 0.6
+  ) +
+  geom_vline(
+    xintercept = 0,
+    linetype = "dashed",
+    linewidth = 0.6,
+    alpha = 0.6
+  ) +
+  geom_point(alpha = 0.75, size = 2.6) +
+  geom_smooth(
+    method = "lm",
+    se = TRUE,
+    linewidth = 1.1,
+    color = "blue"
+  ) +
+  scale_color_gradient2(
+    low = "red",
+    mid = "grey70",
+    high = "darkgreen",
+    midpoint = 0,
+    name = "Beklenenden\nSapma"
+  ) +
+  labs(
+    title = "Kadro Piyasa Değeri ile Puan Performansı Arasındaki İlişki",
+    subtitle = "Renkler regresyon çizgisine göre beklenenden iyi/kötü performansı gösterir.\nYeşil: beklenenden iyi, kırmızı: beklenenden kötü.",
+    x = "Log Göreli Piyasa Değeri",
+    y = "Maç Başına Puan"
+  ) +
+  theme_minimal(base_size = 13)
+
+```
+
+The graph shows a positive correlation between teams’ relative squad value during the season and their points-per-game performance. This suggests that financially stronger squads generally produce higher athletic performance. However, the significant scatter of data points around the regression line indicates that squad value alone is not sufficient to explain success. A value of 0 on the log-scale relative market value axis indicates that a team has a market value equal to the league average for the relevant season. The fact that the majority of the data points do not cluster around 0 suggests a significant divergence in squad values within the Turkish Super League. Points above the regression line represent team-seasons that demonstrate higher-than-expected point performance relative to squad value; points below the line represent team-seasons with lower-than-expected performance. Therefore, residual analysis can be used to measure sporting efficiency relative to financial strength.
+
+### 3.1.2 Interpreting "not-yoyo clubs" (Teams that participate in Turkish Super League for at least 5 years)
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+model_takim_ortalama <- lm(
+  Ortalama_Mac_Basina_Puan ~ Ortalama_Log_Goreli_Deger,
+  data = takim_ortalama_pozisyon
+)
+
+summary(model_takim_ortalama)
+
+takim_ortalama_pozisyon_residual <- takim_ortalama_pozisyon %>%
+  mutate(
+    Beklenen_Ortalama_Mac_Basina_Puan = predict(
+      model_takim_ortalama,
+      newdata = takim_ortalama_pozisyon
+    ),
+    Residual = Ortalama_Mac_Basina_Puan - Beklenen_Ortalama_Mac_Basina_Puan
+  ) %>%
+  arrange(desc(Residual))
+
+ggplot(
+  takim_ortalama_pozisyon_residual,
+  aes(
+    x = Ortalama_Log_Goreli_Deger,
+    y = Ortalama_Mac_Basina_Puan
+  )
+) +
+  geom_vline(
+    xintercept = 0,
+    linetype = "dashed",
+    linewidth = 0.6,
+    alpha = 0.6
+  ) +
+  geom_hline(
+    yintercept = mean(takim_ortalama_pozisyon_residual$Ortalama_Mac_Basina_Puan),
+    linetype = "dashed",
+    linewidth = 0.6,
+    alpha = 0.6
+  ) +
+  geom_point(
+    aes(color = Residual),
+    size = 3.2,
+    alpha = 0.85
+  ) +
+  geom_smooth(
+    method = "lm",
+    se = TRUE,
+    linewidth = 1,
+    color = "blue"
+  ) +
+  geom_text_repel(
+    aes(
+      label = Takim_Kisa,
+      color = Residual
+    ),
+    size = 4,
+    force = 5,
+    force_pull = 0.4,
+    box.padding = 0.7,
+    point.padding = 0.45,
+    max.overlaps = Inf,
+    min.segment.length = 0,
+    segment.color = "grey45",
+    segment.size = 0.35,
+    seed = 42
+  ) +
+  scale_color_gradient2(
+    low = "red",
+    mid = "grey70",
+    high = "darkgreen",
+    midpoint = 0,
+    name = "Beklenenden\nSapma"
+  ) +
+  labs(
+    title = "Takım Bazında Kadro Değeri ve Puan Performansı",
+    subtitle = "Renkler regresyon çizgisine göre beklenenden iyi/kötü uzun dönem performansı gösterir.",
+    x = "Ortalama Log Göreli Piyasa Değeri",
+    y = "Ortalama Maç Başına Puan"
+  ) +
+  theme_minimal(base_size = 13)
+```
+
+When examining average values by team, it is clear that Fenerbahçe, Galatasaray, and Beşiktaş rank among the top tier of the league in terms of both average relative market value and average points per game. These teams’ high point averages are largely consistent with their high squad values.
+
+Although Trabzonspor ranks in the top tier in terms of average squad value, it lies below the regression line. This indicates that, over the 20-year period, Trabzonspor’s expected points performance fell slightly short of what would be expected given its squad value.
+
+On the other hand, Başakşehir and Akhisar are clearly positioned above the regression line. This demonstrates that clubs have produced a significantly higher points performance relative to their average squad values and serves as a successful example of converting financial strength into points.
+
+The presence of numerous teams in the left half of the graph indicates that squad values in the Turkish Super League are concentrated in favor of a few major clubs, and that many clubs are competing with market values below the league average. The relatively balanced distribution of teams on the left side of the line (both above and below) highlights significant differences in sporting efficiency among low and mid budget clubs.
+
+### 3.2.3 Interpreting correlation coefficients
+
+Pearson correlation is the most commonly used statistic to measure the degree of the relationship between linearly related variables.
+
+For the Pearson correlation, both variables should be normally distributed, since normally distributions exhibit a bell-shaped curve. Additionally, other key assumptions include linearity and homoscedasticity. Linearity assumes a straight line relationship between each of the two variables, while homoscedasticity assumes that data is equally distributed about the regression line.
+
+Spearman correlation is a non-parametric test that measures the degree of association between two variables. Moreover, the Spearman rank correlation test does not carry any assumptions about the distribution of the data. It is the appropriate correlation analysis when one measure the variables on a scale that is at least ordinal.
+
+For our context, Pearson correlation answers: "In each season, is there a linear relationship between PPG and log of relative squad market value?" and Spearman correlation answers: "In each season, are ranks of points collected and squad market value similar?"
+
+-   When examining season-based correlations, it is clear that the relationship between squad market value and points performance is generally positive and strong. This suggests that teams with greater financial strength tend to accumulate more points in most seasons. However, differences between Pearson and Spearman correlations reveal that the nature of this relationship varies across seasons. In seasons where the Pearson correlation coefficient is significantly higher than the Spearman correlation coefficient, while the linear relationship between squad value and points is strong, the teams’ market value rankings do not fully align with their point standings. This can be explained by some teams performing better or worse than expected relative to their squad values.
+
+-   Special case when **Pearson \>\> Spearman** (Examples: 2005-2006, 2017-2018 and 2023-2024)
+
+    -   There is a strong linear relationship between squad value and points; however, the squad value rankings and the points rankings are not aligned to the same extent. There are several possible reasons for this:
+
+        -   A few high-value teams may have accumulated very high points, thereby skewing the Pearson correlation upward.
+
+        -   In the middle-to-lower ranks, squad value and point rankings may be mixed up.
+
+        -   Two or three teams in the league may be significantly divergent in terms of both financial and sporting performance; this could boost the linear correlation while weakening the overall alignment of the rankings.
+
+## 3.2 Efficiency Analysis
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+
+
+library(tidyverse)
+library(scales)
+
+residual_siralama <- takim_ortalama_pozisyon_residual %>%
+  mutate(
+    Performans_Tipi = case_when(
+      Residual > 0 ~ "Beklenenden iyi",
+      Residual < 0 ~ "Beklenenden kötü",
+      TRUE ~ "Beklendiği gibi"
+    ),
+    
+    # Grafikte takım kısaltması kullanılacak
+    Takim_Etiket = Takim_Kisa
+  ) %>%
+  arrange(Residual) %>%
+  mutate(
+    Takim_Etiket = factor(Takim_Etiket, levels = Takim_Etiket)
+  )
+
+ggplot(
+  residual_siralama,
+  aes(
+    x = Residual,
+    y = Takim_Etiket,
+    fill = Performans_Tipi
+  )
+) +
+  geom_col(width = 0.65) +
+  geom_vline(
+    xintercept = 0,
+    linewidth = 0.8,
+    color = "grey35"
+  ) +
+  geom_text(
+    aes(
+      label = round(Residual, 3),
+      hjust = ifelse(Residual >= 0, -0.15, 1.15)
+    ),
+    size = 3.7
+  ) +
+  scale_fill_manual(
+    values = c(
+      "Beklenenden iyi" = "#238B45",
+      "Beklenenden kötü" = "#B2182B",
+      "Beklendiği gibi" = "grey60"
+    )
+  ) +
+  scale_x_continuous(
+    limits = c(
+      min(residual_siralama$Residual, na.rm = TRUE) - 0.04,
+      max(residual_siralama$Residual, na.rm = TRUE) + 0.04
+    ),
+    breaks = pretty_breaks(n = 8)
+  ) +
+  labs(
+    title = "Kadro Değerine Göre Beklenenden Sapma Sıralaması",
+    subtitle = "Pozitif değerler kadro değerine göre beklenenden iyi, negatif değerler beklenenden kötü performansı gösterir.",
+    x = "Beklenenden Sapma: Gerçek Ortalama Maç Başına Puan - Beklenen Ortalama Maç Başına Puan",
+    y = "Takım",
+    fill = NULL
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    legend.position = "top",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.text.y = element_text(size = 11),
+    axis.text.x = element_text(size = 11),
+    plot.title = element_text(size = 18, face = "bold"),
+    plot.subtitle = element_text(size = 12),
+    plot.margin = margin(10, 25, 10, 10)
+  )
+```
+
+Teams with positive residuals outperformed the expected points-per-match level implied by their average squad market value, while teams with negative residuals underperformed relative to that expectation. Therefore, the residual ranking measures not only overall sporting success, but also how efficiently clubs converted their financial and squad-value strength into points.
+
+In this ranking, clubs such as **Akhisar Belediye, Başakşehir, and Sivasspor** stand out on the positive side, indicating stronger-than-expected long-term performance relative to their squad values. In contrast, **Ankaraspor, Ankaragücü, Manisaspor, and Yeni Malatyaspor** appear on the negative side, suggesting that they collected fewer points than expected given their average squad values.
+
+Overall, the results show that long-term Süper Lig performance cannot be explained by squad value alone. The residual metric therefore provides a useful measure for comparing clubs’ sporting efficiency relative to their financial strength.
+
+## 3.3 Distribution Analysis
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+
+dagilim_takim_ozet <- veri_grafik %>%
+  group_by(Takim) %>%
+  summarise(
+    Sezon_Sayisi = n_distinct(Sezon),
+    Ortalama_Goreli_Piyasa_Degeri = mean(Goreli_Piyasa_Degeri, na.rm = TRUE),
+    Ortalama_Mac_Basina_Puan = mean(Mac_Basina_Puan, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+
+dagilim_takim_ozet <- dagilim_takim_ozet %>%
+  mutate(
+    Takim_Kisa = recode(Takim, !!!takim_kisaltmalari)
+  )
+
+
+
+ggplot(
+  dagilim_takim_ozet,
+  aes(
+    x = reorder(Takim_Kisa, Ortalama_Goreli_Piyasa_Degeri),
+    y = Ortalama_Goreli_Piyasa_Degeri
+  )
+) +
+  geom_col(width = 0.7, fill = "grey40") +
+  geom_hline(
+    yintercept = 1,
+    linetype = "dashed",
+    linewidth = 0.7,
+    color = "red"
+  ) +
+  geom_text(
+    aes(label = round(Ortalama_Goreli_Piyasa_Degeri, 2)),
+    hjust = -0.15,
+    size = 3.5
+  ) +
+  coord_flip() +
+  scale_y_continuous(
+    limits = c(
+      0,
+      max(dagilim_takim_ozet$Ortalama_Goreli_Piyasa_Degeri, na.rm = TRUE) + 0.4
+    ),
+    breaks = pretty_breaks(n = 8)
+  ) +
+  labs(
+    title = "Takım Bazında Ortalama Göreli Piyasa Değeri",
+    subtitle = "Yalnızca en az 5 sezon Süper Lig'de yer alan takımlar gösterilmiştir.\nKesikli çizgi, sezon ortalamasına eşit değeri göstermektedir.",
+    x = "Takım",
+    y = "Ortalama Göreli Piyasa Değeri"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.text.y = element_text(size = 11),
+    plot.title = element_text(size = 18, face = "bold"),
+    plot.subtitle = element_text(size = 12)
+  )
+
+
+ggplot(
+  dagilim_takim_ozet,
+  aes(
+    x = reorder(Takim_Kisa, Ortalama_Mac_Basina_Puan),
+    y = Ortalama_Mac_Basina_Puan
+  )
+) +
+  geom_col(width = 0.7, fill = "grey40") +
+  geom_hline(
+    yintercept = mean(dagilim_takim_ozet$Ortalama_Mac_Basina_Puan, na.rm = TRUE),
+    linetype = "dashed",
+    linewidth = 0.7,
+    color = "red"
+  ) +
+  geom_text(
+    aes(label = round(Ortalama_Mac_Basina_Puan, 2)),
+    hjust = -0.15,
+    size = 3.5
+  ) +
+  coord_flip() +
+  scale_y_continuous(
+    limits = c(
+      0,
+      max(dagilim_takim_ozet$Ortalama_Mac_Basina_Puan, na.rm = TRUE) + 0.25
+    ),
+    breaks = pretty_breaks(n = 8)
+  ) +
+  labs(
+    title = "Takım Bazında Ortalama Maç Başına Puan",
+    subtitle = "Yalnızca en az 5 sezon Süper Lig'de yer alan takımlar gösterilmiştir.\nKesikli çizgi, bu takım grubunun ortalama maç başına puan değerini göstermektedir.",
+    x = "Takım",
+    y = "Ortalama Maç Başına Puan"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.text.y = element_text(size = 11),
+    plot.title = element_text(size = 18, face = "bold"),
+    plot.subtitle = element_text(size = 12)
+  )
+```
+
+## 3.4 Longitudinal Analysis
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+library(tidyverse)
+library(ggrepel)
+library(scales)
+library(broom)
+
+
+
+toplam_sezon_sayisi <- veri_analiz %>%
+  summarise(Toplam_Sezon = n_distinct(Sezon)) %>%
+  pull(Toplam_Sezon)
+
+hic_dusmeyen_takimlar <- veri_analiz %>%
+  distinct(Takim, Sezon) %>%
+  count(Takim, name = "Sezon_Sayisi") %>%
+  filter(Sezon_Sayisi == toplam_sezon_sayisi) %>%
+  arrange(Takim)
+
+hic_dusmeyen_takimlar
+
+veri_longitudinal <- veri_analiz %>%
+  filter(Takim %in% hic_dusmeyen_takimlar$Takim) %>%
+  mutate(
+    Sezon_Baslangic = as.numeric(str_sub(Sezon, 1, 4))
+  )
+
+takim_kisaltmalari_long <- c(
+  "Beşiktaş" = "BJK",
+  "Fenerbahçe" = "FB",
+  "Galatasaray" = "GS",
+  "Trabzonspor" = "TS"
+)
+
+veri_longitudinal <- veri_longitudinal %>%
+  mutate(
+    Takim_Kisa = recode(Takim, !!!takim_kisaltmalari_long)
+  )
+
+ggplot(
+  veri_longitudinal,
+  aes(
+    x = Sezon_Baslangic,
+    y = Goreli_Piyasa_Degeri,
+    color = Takim_Kisa,
+    group = Takim_Kisa
+  )
+) +
+  geom_hline(
+    yintercept = 1,
+    linetype = "dashed",
+    linewidth = 0.7,
+    color = "grey40"
+  ) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2.5) +
+  scale_x_continuous(
+    breaks = sort(unique(veri_longitudinal$Sezon_Baslangic)),
+    labels = sort(unique(veri_longitudinal$Sezon))
+  ) +
+  labs(
+    title = "20 Yıllık Göreli Kadro Değeri Evrimi",
+    subtitle = "Yalnızca veri setindeki tüm sezonlarda yer alan takımlar gösterilmiştir.\nKesikli çizgi, ilgili sezonun lig ortalama kadro değerini gösterir.",
+    x = "Sezon",
+    y = "Göreli Piyasa Değeri",
+    color = "Takım"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(size = 18, face = "bold")
+  )
+
+
+
+ggplot(
+  veri_longitudinal,
+  aes(
+    x = Sezon_Baslangic,
+    y = Mac_Basina_Puan,
+    color = Takim_Kisa,
+    group = Takim_Kisa
+  )
+) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2.5) +
+  scale_x_continuous(
+    breaks = sort(unique(veri_longitudinal$Sezon_Baslangic)),
+    labels = sort(unique(veri_longitudinal$Sezon))
+  ) +
+  labs(
+    title = "20 Yıllık Maç Başına Puan Evrimi",
+    subtitle = "Yalnızca veri setindeki tüm sezonlarda yer alan takımlar gösterilmiştir.",
+    x = "Sezon",
+    y = "Maç Başına Puan",
+    color = "Takım"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(size = 18, face = "bold")
+  )
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+
+library(tidyverse)
+library(ggrepel)
+library(scales)
+library(broom)
+
+
+
+dort_buyuk <- c(
+  "Fenerbahçe",
+  "Galatasaray",
+  "Beşiktaş",
+  "Trabzonspor"
+)
+
+
+
+veri_yillik_residual <- veri_analiz %>%
+  group_by(Sezon) %>%
+  group_modify(~ {
+    
+    model <- lm(
+      Mac_Basina_Puan ~ Log_Goreli_Piyasa_Degeri,
+      data = .x
+    )
+    
+    .x %>%
+      mutate(
+        Beklenen_Mac_Basina_Puan = predict(model, newdata = .x),
+        Residual = Mac_Basina_Puan - Beklenen_Mac_Basina_Puan
+      )
+  }) %>%
+  ungroup()
+
+
+dort_buyuk_residual <- veri_yillik_residual %>%
+  filter(Takim %in% dort_buyuk) %>%
+  mutate(
+    Sezon_Baslangic = as.numeric(str_sub(Sezon, 1, 4)),
+    Takim_Kisa = recode(
+      Takim,
+      "Fenerbahçe" = "FB",
+      "Galatasaray" = "GS",
+      "Beşiktaş" = "BJK",
+      "Trabzonspor" = "TS"
+    )
+  ) %>%
+  arrange(Takim, Sezon_Baslangic)
+
+
+# Kontrol tablosu
+dort_buyuk_residual %>%
+  select(
+    Sezon,
+    Takim,
+    Takim_Kisa,
+    Log_Goreli_Piyasa_Degeri,
+    Mac_Basina_Puan,
+    Beklenen_Mac_Basina_Puan,
+    Residual
+  )
+
+
+ggplot(
+  dort_buyuk_residual,
+  aes(
+    x = Sezon_Baslangic,
+    y = Residual,
+    color = Takim_Kisa,
+    group = Takim_Kisa
+  )
+) +
+  geom_hline(
+    yintercept = 0,
+    linetype = "dashed",
+    linewidth = 0.8,
+    color = "grey35"
+  ) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2.7) +
+  scale_x_continuous(
+    breaks = sort(unique(dort_buyuk_residual$Sezon_Baslangic)),
+    labels = sort(unique(dort_buyuk_residual$Sezon))
+  ) +
+  scale_y_continuous(
+    breaks = pretty_breaks(n = 8)
+  ) +
+  labs(
+    title = "Dört Büyük Takımın Yıllık Verimlilik Değişimi",
+    subtitle = "Residual = Gerçek maç başına puan - kadro değerine göre beklenen maç başına puan\nPozitif değerler beklenenden iyi, negatif değerler beklenenden kötü sezon performansını gösterir.",
+    x = "Sezon",
+    y = "Yıllık Residual",
+    color = "Takım"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    legend.position = "top",
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(size = 18, face = "bold"),
+    plot.subtitle = element_text(size = 12)
+  )
+```
+
+## 3.5 Key Takeaways
+
+-   **Squad market value and sporting performance are positively related.** Across the analyzed seasons, teams with higher relative squad market values generally achieved higher points per match, indicating that financial strength is an important driver of Süper Lig performance. However, squad value alone does not fully explain success. The dispersion around the regression line shows that several clubs either overperformed or underperformed relative to what their squad value would suggest, highlighting the role of managerial quality, squad planning, stability, and other sporting factors.
+
+-   **Residual analysis provides a useful efficiency measure.** Positive residuals identify clubs that converted their squad value into points more efficiently than expected, while negative residuals indicate underperformance relative to financial strength. This allows clubs to be compared beyond simple points or market value rankings.
+
+-   **Long-term club profiles differ significantly.** While clubs such as Fenerbahçe, Galatasaray, and Beşiktaş combine high squad values with high points-per-match averages, Başakşehir stands out as a strong overperformer relative to its average squad value, whereas Trabzonspor appears below the expected performance line in the long-term comparison.
+
+-   **The longitudinal analysis shows that efficiency changes over time.** Annual residual trends for the four major clubs reveal that performance relative to squad value is not constant; clubs move between overperformance and underperformance across seasons, suggesting that financial power must be continuously converted into sporting output.
