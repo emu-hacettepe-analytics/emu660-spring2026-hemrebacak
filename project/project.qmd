@@ -13,6 +13,8 @@ More specifically, the project will address the following questions:
 
 By combining financial and performance datasets, this project aims to provide both descriptive and analytical insights into the efficiency and competitiveness of clubs in the Turkish football ecosystem.
 
+**During the project, generative AI tools such as Google Gemini or ChatGPT are utilized.**
+
 # 2. Data
 
 ## 2.1 Data Source
@@ -30,11 +32,11 @@ The script is created thanks to Gemini 3.1 GenAI tool. You can refer to prompts 
 
 The project utilizes two main datasets covering a 20-season period from 2004–2005 to 2024–2025.
 
--   Dataset 1: Financial and Squad Data (superlig_kadro_verileri)
+-   Dataset 1: Financial and Squad Data ([superlig_kadro_verileri](superlig_kadro_verileri.csv))
 
 This dataset contains team-level financial and structural information for each season.
 
--   Dataset 2: League Performance Data (superlig_puan_durumu_verileri)
+-   Dataset 2: League Performance Data ([superlig_puan_durumu_verileri](superlig_puan_durumu_verileri.csv))
 
 This dataset contains performance-related statistics for each team-season.
 
@@ -154,9 +156,9 @@ In this project, multiple analyses will be conducted to investigate the relation
 
 The planned analyses are as follows:
 
--   **Distribution Analysis:** The distribution of squad values and performance indicators will be analyzed to understand overall league structure.
 -   **Correlation Analysis:** The relationship between total squad market value and total points will be examined to understand whether financially stronger teams perform better.
 -   **Efficiency Analysis:** Clubs will be evaluated based on how efficiently they convert financial resources into points.
+-   **Distribution Analysis:** The distribution of squad values and performance indicators will be analyzed to understand overall league structure.
 -   **Longitudinal Analysis (20-Year Club Evolution):** The squad value and performance evolution of clubs over the past 20 years will be analyzed. This includes examining trends in squad value and performance consistency, as well as identifying clubs that improved or declined over time.
 
 ## 3.1 Correlation Analysis
